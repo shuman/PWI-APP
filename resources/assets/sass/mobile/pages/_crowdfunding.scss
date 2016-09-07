@@ -1,0 +1,110 @@
+/* Indivdual Page */
+
+#crowdfunding-page, #project-page{
+
+	div[data-role='main']{
+		background-color: #f9f9f9;	
+	}
+}
+
+.crowdfunding-top{
+	width: 100%;
+	position: relative;
+	background-color: #fff;
+
+	.coverphoto{
+		width: 100%;
+		height: 125px;
+	}
+
+	.crowdfunding-title-data{
+		width: 100%;
+		font-size: 18px;
+		text-align: center;
+		padding: 12px 0px;
+
+		.project-title{
+			font-weight: bold;
+			color: #000;
+		}
+
+		.org-name{
+			font-weight: 300;
+			color: $blue;
+		}
+	}
+
+	.actions{
+		width: 100%;
+		height: 90px;
+		
+		.top{
+			width: 50%;
+			height: 32px;
+			text-align: center;
+			float: left;
+			padding-top: 13px;
+
+			a{
+				color: #fff;
+				text-decoration: none;
+				text-transform: uppercase;
+				font-size: 18px;
+				padding-top: 13px;
+			}
+		}
+
+		.bottom{
+			width: 100%;
+			height: 32px;
+			text-align: center;
+			float: left;
+			padding-top: 13px;
+
+			a{
+				color: #fff;
+				text-decoration: none;
+				text-transform: uppercase;
+				font-size: 18px;
+				padding-top: 13px;
+			}
+		}
+
+		.donate{
+			background-color: $money;
+		}
+
+		.follow{
+			background-color: $red;
+		}
+
+		.share{
+			background-color: $blue;
+		}
+	}
+
+	.crowdfunding-status{
+		.stats{
+			width: 100%;
+		}
+	}
+}
+
+.project-description{
+	background-color: #fff;
+	border-top: 1px solid #e5e5e5;
+	border-bottom: 1px solid #e5e5e5;
+
+	.title{
+		padding: 10px 20px;
+		border-bottom: 1px solid #e5e5e5;
+		font-size: 18px;
+		font-weight: 700;
+	}
+
+	.content{
+		padding: 10px 20px;
+		color: $grey;
+		font-size: 14px;
+	}
+}

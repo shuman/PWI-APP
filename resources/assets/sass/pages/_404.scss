@@ -1,0 +1,29 @@
+.container-fourohfour{
+	display:block;
+	width: 100%;
+	height: 100%;
+
+	
+	.fourohfour-data{
+		margin-top: 150px;
+		h1{
+			font-size: 64px;
+			font-weight: 700;
+		} 
+		
+		.error{
+			color: $blue;
+			font-size: 18px;
+			font-weight: 300;
+			display: block;
+			border: none;
+		}	
+		
+		.content{
+			color: black;
+			font-size: 14px;
+			font-weight: 300;
+		}
+		
+	}
+}

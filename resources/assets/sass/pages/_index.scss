@@ -1,0 +1,189 @@
+@include placeholderStyle( 16px, $grey );
+
+.home-page-bg{
+    
+    display:table;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    height: 100%;
+    width: 100%;
+	background-repeat: no-repeat;
+    background-position: center center;
+    @include bgSize( cover );
+    z-index: 0;
+    box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.05);
+    
+    .home-page-content-wrapper{
+        
+        display: table-row;
+        
+        .home-page-content{
+            display: table-cell;
+            vertical-align: middle;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            
+
+            .home-page-title{
+                color: #fff;
+                font-size: 67px;
+                letter-spacing: 4.65px;
+                text-transform: uppercase;
+                text-shadow: 0px 0px 7px rgba(0,0,0,0.05);
+            }
+            
+
+            .home-page-sub-title{
+                color: #fff;
+                font-size: 26px;
+                font-weight: 300;
+                word-spacing: 5px;
+                letter-spacing: 2.6px;
+                text-shadow: 0px 0px 7px rgba(0,0,0,0.05);
+            }
+            
+            .buttons{
+	            display: block;
+	        }
+            
+            .home-page-button{
+                width: 150px;
+                border: none;
+                background-color: rgba( 255,255,255,.3);
+                color: #fff;
+                padding: 5px 0px;
+                @include border-radius( 4px );
+                height: 40px;
+                font-size: 18px;
+                
+            }
+            
+            .home-page-button:hover{
+                background-color: rgba( 255,255,255,.4);
+            }
+        }    
+    }
+    
+    .home-page-search-wrapper{
+        
+        display: table-row;
+        
+        .home-page-search{
+            display: table-cell;
+            vertical-align: top;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            margin-top: -20px;
+
+            input[type='text']{
+                width: 80%;
+                max-width: 500px;
+                height: 46px;
+                padding-left: 25px;
+                margin-top: -5px;
+            }
+            .search{
+                color: #fff;
+                background-color: #33aef4;
+                width: 46px;
+                height: 46px;
+                margin-left: -3px;
+                border: 0px solid #fff;
+                @include border-radius( 0px );
+            }
+
+            .search:focus{
+                outline: none;
+            }
+
+            .glyphicon-search:before{
+                margin-left: -3px;
+            }
+            
+            .whatis{
+                background-color: rgba(255,255,255,.2);
+                padding: 2px 10px;
+                color: #fff;
+                height: 46px;
+                width: auto;
+                border: none;
+                margin-left: 20px;
+            }
+        }
+    }   
+}
+
+.background-description{
+    position: absolute;
+    bottom: 65px;
+    right: 0px;
+    text-align: right;
+    color: #fff;
+    font-weight: 400;
+    width: 100%;
+    font-size: 16px;
+    
+    a, a:visited, a:hover, a:focus{
+	    color: #fff;
+	    text-decoration: underline;
+    }
+
+    span{
+        padding-right: 20px;
+    }
+}
+
+.background-description span:hover{
+    background-color: rgba(0,0,0,.6);
+    padding: 10px 20px;
+    @include border-radius( 4px );
+}
+
+.login-popover{
+    width: 590px;
+    max-width: 590px;
+}
+
+.suggestive-search{
+    
+    width: auto;
+    max-width: 500px;
+    left: 75px !important;
+    
+    .popover-title{
+        white-space: nowrap;
+        
+        .clear-popover:hover{
+            cursor: pointer;
+        }
+    }
+    
+    .popover-content{
+        
+        white-space: none;
+        
+        ul{
+            list-style: none;
+            padding-left: 0px;
+            li{
+
+            } 
+        } 
+
+        .ac-current{
+            background-color: #33aef4;
+            font-weight:bold;
+            color: #eb008b;
+            padding: 2px 5px;
+        }
+    }
+}
+
+@media only screen and (max-width: 1024px ){
+    
+    @include placeholderStyle( 14px, #292f33 );
+}
+

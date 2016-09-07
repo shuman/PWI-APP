@@ -1,0 +1,429 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "pwi-font";
+  src:url("fonts/pwi-font.eot");
+  src:url("fonts/pwi-font.eot?#iefix") format("embedded-opentype"),
+    url("fonts/pwi-font.woff") format("woff"),
+    url("fonts/pwi-font.ttf") format("truetype"),
+    url("fonts/pwi-font.svg#pwi-font") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "pwi-font" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="pwi-"]:before,
+[class*=" pwi-"]:before {
+  font-family: "pwi-font" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.pwi-actions-facebook-fill:before {
+  content: "a";
+}
+.pwi-actions-facebook-fill-active:before {
+  content: "b";
+}
+.pwi-actions-follow-fill:before {
+  content: "c";
+}
+.pwi-actions-follow-fill-active:before {
+  content: "d";
+}
+.pwi-actions-twitter-fill:before {
+  content: "e";
+}
+.pwi-actions-twitter-fill-active:before {
+  content: "f";
+}
+.pwi-actions-updates-fill:before {
+  content: "g";
+}
+.pwi-arrow:before {
+  content: "h";
+}
+.pwi-cancel:before {
+  content: "i";
+}
+.pwi-cause-children:before {
+  content: "j";
+}
+.pwi-cause-children-solid:before {
+  content: "k";
+}
+.pwi-cause-children-stroke:before {
+  content: "l";
+}
+.pwi-cause-economy:before {
+  content: "m";
+}
+.pwi-cause-economy-solid:before {
+  content: "n";
+}
+.pwi-cause-economy-stroke:before {
+  content: "o";
+}
+.pwi-cause-family:before {
+  content: "s";
+}
+.pwi-cause-family-solid:before {
+  content: "t";
+}
+.pwi-cause-family-stroke:before {
+  content: "u";
+}
+.pwi-cause-government:before {
+  content: "v";
+}
+.pwi-cause-government-solid:before {
+  content: "w";
+}
+.pwi-cause-government-stroke:before {
+  content: "x";
+}
+.pwi-cause-health:before {
+  content: "y";
+}
+.pwi-cause-health-solid:before {
+  content: "z";
+}
+.pwi-cause-health-stroke:before {
+  content: "A";
+}
+.pwi-cause-humanrights:before {
+  content: "B";
+}
+.pwi-cause-humanrights-solid:before {
+  content: "C";
+}
+.pwi-cause-humanrights-stroke:before {
+  content: "D";
+}
+.pwi-cause-poverty:before {
+  content: "E";
+}
+.pwi-cause-poverty-solid:before {
+  content: "F";
+}
+.pwi-cause-poverty-stroke:before {
+  content: "G";
+}
+.pwi-cause-religion:before {
+  content: "H";
+}
+.pwi-cause-religion-solid:before {
+  content: "I";
+}
+.pwi-cause-religion-stroke:before {
+  content: "J";
+}
+.pwi-cause-seemore:before {
+  content: "K";
+}
+.pwi-cause-seemore-solid:before {
+  content: "L";
+}
+.pwi-cause-seemore-stroke:before {
+  content: "M";
+}
+.pwi-cause-water:before {
+  content: "N";
+}
+.pwi-cause-water-solid:before {
+  content: "O";
+}
+.pwi-cause-water-stroke:before {
+  content: "P";
+}
+.pwi-dashboard-causes:before {
+  content: "Q";
+}
+.pwi-dashboard-causes-solid:before {
+  content: "R";
+}
+.pwi-dashboard-causes-stroke:before {
+  content: "S";
+}
+.pwi-dashboard-crowdfunding:before {
+  content: "T";
+}
+.pwi-dashboard-crowdfunding-solid:before {
+  content: "U";
+}
+.pwi-dashboard-crowdfunding-stroke:before {
+  content: "V";
+}
+.pwi-dashboard-events:before {
+  content: "W";
+}
+.pwi-dashboard-events-solid:before {
+  content: "X";
+}
+.pwi-dashboard-events-stroke:before {
+  content: "Y";
+}
+.pwi-dashboard-payment:before {
+  content: "Z";
+}
+.pwi-dashboard-payment-solid:before {
+  content: "0";
+}
+.pwi-dashboard-payment-stroke:before {
+  content: "1";
+}
+.pwi-dashboard-photos:before {
+  content: "2";
+}
+.pwi-dashboard-photos-solid:before {
+  content: "3";
+}
+.pwi-dashboard-photos-stroke:before {
+  content: "4";
+}
+.pwi-dashboard-profile:before {
+  content: "5";
+}
+.pwi-dashboard-profile-solid:before {
+  content: "6";
+}
+.pwi-dashboard-profile-stroke:before {
+  content: "7";
+}
+.pwi-dashboard-shopping:before {
+  content: "8";
+}
+.pwi-dashboard-shopping-solid:before {
+  content: "9";
+}
+.pwi-dashboard-shopping-stroke:before {
+  content: "!";
+}
+.pwi-dashboard-social:before {
+  content: "\"";
+}
+.pwi-dashboard-social-solid:before {
+  content: "#";
+}
+.pwi-dashboard-social-stroke:before {
+  content: "$";
+}
+.pwi-dashboard-subscription:before {
+  content: "%";
+}
+.pwi-dashboard-subscription-solid:before {
+  content: "&";
+}
+.pwi-dashboard-subscription-stroke:before {
+  content: "'";
+}
+.pwi-dashboard-updates:before {
+  content: "(";
+}
+.pwi-dashboard-updates-solid:before {
+  content: ")";
+}
+.pwi-dashboard-updates-stroke:before {
+  content: "*";
+}
+.pwi-dashboard-volunteers:before {
+  content: "+";
+}
+.pwi-dashboard-volunteers-solid:before {
+  content: ",";
+}
+.pwi-dashboard-volunteers-stroke:before {
+  content: "-";
+}
+.pwi-dropwdown-arrow:before {
+  content: ".";
+}
+.pwi-format-bold:before {
+  content: "/";
+}
+.pwi-format-bullets:before {
+  content: ":";
+}
+.pwi-format-indentleft:before {
+  content: ";";
+}
+.pwi-format-indentright:before {
+  content: "<";
+}
+.pwi-format-insertpicture:before {
+  content: "=";
+}
+.pwi-format-italics:before {
+  content: ">";
+}
+.pwi-format-lits:before {
+  content: "?";
+}
+.pwi-format-size:before {
+  content: "@";
+}
+.pwi-format-underline:before {
+  content: "[";
+}
+.pwi-header-arrow-left:before {
+  content: "]";
+}
+.pwi-header-arrow-right:before {
+  content: "^";
+}
+.pwi-heart:before {
+  content: "_";
+}
+.pwi-info-datetime:before {
+  content: "`";
+}
+.pwi-info-droppin:before {
+  content: "{";
+}
+.pwi-info-email:before {
+  content: "|";
+}
+.pwi-info-financial:before {
+  content: "}";
+}
+.pwi-info-phone:before {
+  content: "~";
+}
+.pwi-info-website:before {
+  content: "\\";
+}
+.pwi-navbar-aboutus:before {
+  content: "\e000";
+}
+.pwi-navbar-profile:before {
+  content: "\e001";
+}
+.pwi-navbar-search:before {
+  content: "\e002";
+}
+.pwi-navbar-shuffle:before {
+  content: "\e003";
+}
+.pwi-navbar-social:before {
+  content: "\e004";
+}
+.pwi-pagination-left:before {
+  content: "\e005";
+}
+.pwi-pagination-right:before {
+  content: "\e006";
+}
+.pwi-pwi-logo:before {
+  content: "\e007";
+}
+.pwi-redirect-home:before {
+  content: "\e008";
+}
+.pwi-redirect-home-stroke:before {
+  content: "\e009";
+}
+.pwi-redirect-shuffle:before {
+  content: "\e00a";
+}
+.pwi-redirect-shuffle-stroke:before {
+  content: "\e00b";
+}
+.pwi-redirect-shufflestroke:before {
+  content: "\e00c";
+}
+.pwi-settings:before {
+  content: "\e00d";
+}
+.pwi-signin-create:before {
+  content: "\e00e";
+}
+.pwi-signin-create-active:before {
+  content: "\e00f";
+}
+.pwi-signin-facebook:before {
+  content: "\e010";
+}
+.pwi-signin-facebook-active:before {
+  content: "\e011";
+}
+.pwi-social-facebook:before {
+  content: "\e012";
+}
+.pwi-social-instagram:before {
+  content: "\e013";
+}
+.pwi-social-pinterest:before {
+  content: "\e014";
+}
+.pwi-social-rss:before {
+  content: "\e015";
+}
+.pwi-social-twitter:before {
+  content: "\e016";
+}
+.pwi-star:before {
+  content: "\e017";
+}
+.pwi-cause-education-stroke:before {
+  content: "r";
+}
+.pwi-cause-environment:before {
+  content: "\e018";
+}
+.pwi-cause-environment-solid:before {
+  content: "\e019";
+}
+.pwi-cause-environment-stroke:before {
+  content: "\e01a";
+}
+.pwi-cause-education:before {
+  content: "p";
+}
+.pwi-cause-education-solid:before {
+  content: "q";
+}
+.pwi-signin-create-2:before {
+  content: "\e01b";
+}
+.pwi-dashboard-export-solid:before {
+  content: "\e01c";
+}
+.pwi-dashboard-export-stroke:before {
+  content: "\e01d";
+}
+.pwi-dashboard-export-stroke-1:before {
+  content: "\e01e";
+}
+.pwi-dashboard-export-solid-1:before {
+  content: "\e01f";
+}
+
+.pwi-icon-2em:before{
+ font-size: 2em;   
+}
+.pwi-icon-3em:before{
+ font-size: 3em;   
+}
+.pwi-icon-filler:before{
+    visibility: hidden;   
+    content: "a";
+}

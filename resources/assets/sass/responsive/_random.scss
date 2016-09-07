@@ -1,0 +1,151 @@
+@media only screen and ( max-width: 1200px ){
+	.std-navbar{
+		.form-group{
+        
+        	input[type='text']{
+	        	width: 300px;	
+	        }
+	    }
+	}
+	
+	.project-description{
+		.video{
+			iframe{
+				width: 400px;
+				height: 225px;
+			}
+		}
+	}
+}
+/* 1140px */
+@media only screen and ( max-width: 1140px ){
+	.index-navbar .navbar-right .navbar-actions a{
+		font-size: 16px;
+	}	
+}
+
+/* 1080px */
+@media only screen and ( max-width: 1080px ){
+	
+	.navbar-nav > li > a{
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	
+	.std-navbar{
+		.form-group{
+        
+        	input[type='text']{
+	        	width: 200px;	
+	        }
+	    }
+	}
+}
+
+/* 945px */
+@media only screen and ( max-width: 950px ){
+	
+	.index-navbar .navbar-right .navbar-actions .user-data a{
+		display: none;
+	}
+	
+	.std-navbar .user-data .user-name{
+		display: none;
+	}
+	
+	.std-navbar{
+		.form-group{
+        
+        	input[type='text']{
+	        	width: 200px;	
+	        }
+	    }
+	}
+}
+
+@media only screen and ( max-width: 815px ){
+	
+	.home-page-bg{
+		.home-page-content-wrapper{
+			.home-page-content{
+				
+				.home-page-title{
+					font-size: 55px;   
+				}
+				
+				.home-page-sub-title{
+					font-size: 24px;
+				}
+				
+				.home-page-button{
+					width: 125px;
+				}
+			}
+		}
+	}
+}
+
+/* 775px */
+
+@media only screen and ( max-width: 850px ){
+	
+	/* Drop Down adjustments */
+	
+	.pull-down-about{
+		padding: 70px 20px;
+		
+		.title{
+			font-size: 36px;
+		}
+		
+		.content{
+			padding: 0px 50px;
+		}
+		
+		.panel{
+			
+			img{
+				width: 125px;
+				height: 125px;
+			}
+			
+			.title{
+				font-size: 14px;
+			}
+			
+			.searchby{
+				min-width: 175px;
+			}
+			
+			.content{
+				height: 60px;
+			}
+		}
+	}
+	
+	.navbar-nav{
+		li{
+			a{
+				padding-left: 5px;
+				padding-right: 5px;
+			}
+		}
+	}
+}
+
+/* 675px */
+@media only screen and ( max-width: 675px ){
+	
+	.home-page-bg{
+		.home-page-content-wrapper{
+			.home-page-content{
+				.home-page-title{
+					font-size:45px;
+				}
+				.home-page-sub-title{
+					font-size: 18px;
+				}
+			}
+		}
+	}
+}

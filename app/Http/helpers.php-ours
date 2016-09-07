@@ -1,0 +1,698 @@
+<?php
+
+namespace App\Http;
+
+use Folklore\Image\Facades\Image;
+use App\Organizations;
+use App\UserAddress;
+use Carbon\Carbon;
+use App\MetaData;
+use App\Products;
+use App\Projects;
+use App\Causes;
+use App\Stats;
+use Config;
+use DB;
+
+
+setlocale(LC_MONETARY, 'en_US');
+
+class Helper {
+
+    private $metaPattern = "/%%[A-Z]+%%/";
+
+    static function buildProjectsTileArray($projects) {
+
+        $list = array();
+
+        foreach ($projects as $project) {
+
+            $projectId          = $project->project_id;
+            $projectOrgName     = $project->org_name;
+            $projectOrgAlias    = $project->org_alias;
+            $projectTitle       = $project->project_title;
+            $projectAlias       = $project->project_alias;
+            $fundGoal           = $project->project_fund_goal;
+            $amtRaised          = $project->project_amout_raised;
+            $causeNames         = "";
+            $countryNames       = "";
+
+            $daysLeft = Carbon::createFromTimeStamp(strtotime($project->project_end_date))->diffInDays();
+
+            $thisProject = Projects::find($projectId);
+
+            $causes = $thisProject->causes;
+            $countries = $thisProject->countries;
+
+            $icon = "";
+            $header = "";
+
+            if( ! is_null( $thisProject->icon ) ){
+                $icon = Config::get('globals.prjImgPath') . $thisProject->icon->file_path;
+            }
+            
+            if( ! is_null( $thisProject->header ) ){
+                $header = Config::get('globals.prjImgPath' ) . $thisProject->header->file_path;
+            }
+            
+            list( $date, $time) = explode(" ", $thisProject->project_end_date);
+
+            list( $year, $month, $day) = explode("-", $date);
+
+            if (!file_exists(public_path() . $icon)) {
+                $icon = "/images/cfPlaceholder.png";
+            }
+
+            foreach ($causes as $cause) {
+                if (empty($causeNames)) {
+                    $causeNames = $cause->cause_name;
+                } else {
+                    $causeNames .= ", " . $cause->cause_name;
+                }
+            }
+
+            foreach ($countries as $country) {
+                if (empty($countryNames)) {
+                    $countryNames = $country->country_name;
+                } else {
+                    $countryNames .= ", " . $country->country_name;
+                }
+            }
+
+            if ((int) $amtRaised == 0) {
+                $projectPercentageComplete = 0;
+            } else {
+                $projectPercentageComplete = (((int) $amtRaised / (int) str_replace(",", "", $fundGoal)) * 100);
+            }
+
+            $list[] = array(
+                "id"                => $projectId,
+                "org_name"          => $projectOrgName,
+                "org_alias"         => $projectOrgAlias,
+                "title"             => $projectTitle,
+                "alias"             => $projectAlias,
+                "fundGoal"          => money_format('%(#10n', (int) $fundGoal),
+                "goalInt"           => $fundGoal,
+                "amtRaised"         => money_format('%(#10n', (int) $amtRaised),
+                "causes"            => $causeNames,
+                "countries"         => $countryNames,
+                "icon"              => $icon,
+                "header"            => $header,
+                "percentage"        => $projectPercentageComplete,
+                "daysleft"          => $daysLeft,
+                "desc"              => $thisProject->project_story,
+                "videoUrl"          => $thisProject->project_video_url,
+                "origVideoUrl"      => $thisProject->project_orig_video_url,
+                "incentives"        => $thisProject->incentives,
+                "projectCauses"     => $thisProject->causes,
+                "updates"           => $thisProject->updates,
+                "endMonth"          => $month,
+                "endDay"            => $day,
+                "endYear"           => $year
+            );
+        }
+
+        return $list;
+    }
+
+    static function buildProductsTileArray($products) {
+
+        $list = array();
+
+        foreach ($products as $product) {
+
+            $product_id = $product->product_id;
+            $product_name = $product->product_name;
+            $product_alias = $product->product_alias;
+            $short_desc = $product->product_short_desc;
+            $org_name = $product->org_name;
+            $sales_price = $product->product_sales_price;
+            $image = Config::get("globals.prdImgPath") . $product->image;
+
+            if (!file_exists(public_path() . $image) || is_dir(public_path() . $image)) {
+                $image = "/images/prodPlaceholder.png";
+            }
+
+            $thisProduct = Products::find($product_id);
+
+            $rating = $thisProduct->rating->avg("comment_rating");
+
+            $list[] = array(
+                "name" => $product_name,
+                "alias" => $product_alias,
+                "sdesc" => $short_desc,
+                "org_name" => stripslashes($org_name),
+                "image" => $image,
+                "price" => money_format('%(#10n', $sales_price),
+                "rating" => $rating
+            );
+        }
+
+        return $list;
+    }
+
+    static function buildOrgTileArray($orgs, $from, $name) {
+
+        $list = array();
+
+        foreach ($orgs as $org) {
+
+            //Extract/Declare variables for organization
+            $id = $org->org_id;
+            $org_name = $org->org_name;
+            $desc = $org->org_desc;
+            $alias = $org->org_alias;
+            $impactCountries = "";
+            $orgCauses = "";
+            $orgRatings = 0;
+
+            $tmp = Organizations::find($id);
+
+            $impactCountries = $tmp->impactCountries;
+            $impacts = "";
+            foreach ($impactCountries as $impactCountry) {
+                $impactCountryName = $impactCountry->country_name;
+                if (empty($impacts)) {
+                    $impacts = $impactCountryName;
+                } else {
+                    $impacts .= ", " . $impactCountryName;
+                }
+            }
+
+            if ($from == "country") {
+                $impacts = str_replace("<b>" . $name . "</b>", $name, $impacts);
+            }
+
+            $causes = $tmp->causes;
+
+            foreach ($causes as $cause) {
+                if (empty($orgCauses)) {
+                    $orgCauses = $cause->cause_name;
+                } else {
+                    $orgCauses .= ", " . $cause->cause_name;
+                }
+            }
+
+            if ($from == "cause") {
+                $orgCauses = str_replace("<b>" . $name . "</b>", $name, $orgCauses);
+            }
+
+            $orgRatings = $tmp->rating->avg("comment_rating");
+
+            $orgLogo = $tmp->logo;
+
+            if (isset($orgLogo->file_path) && file_exists(public_path() . Config::get("globals.orgImgPath") . $orgLogo->file_path)) {
+                $orgLogo = Config::get("globals.orgImgPath") . $orgLogo->file_path;
+            } else {
+                $orgLogo = "/images/orgPlaceHolder.jpg";
+            }
+
+            //Build Org array
+            $list[] = array(
+                "id" => $id,
+                "name" => $org_name,
+                "alias" => $alias,
+                "desc" => $desc,
+                "impactCountries" => $impacts,
+                "causes" => $orgCauses,
+                "rating" => $orgRatings,
+                "logo" => $orgLogo,
+                "descExp" => explode(" ", $desc),
+            );
+        }
+
+        return $list;
+    }
+
+    public function getMetaData($type, $page) {
+
+        return MetaData::where("type", "=", $type)
+                        ->where("page", "=", $page)
+                        ->select("title", "description")
+                        ->get();
+    }
+
+    public function parseIndMetaData($data, $name) {
+
+        $data->title = preg_replace($this->metaPattern, $name, $data->title);
+
+        $data->description = preg_replace($this->metaPattern, $name, $data->description);
+
+        return $data;
+    }
+
+    public function parseSearchMetaData($data, $of, $in) {
+
+
+        $data->title = str_replace("%%OF%%", $of, $data->title);
+
+        $data->title = str_replace("%%IN%%", $in, $data->title);
+
+        $data->description = $data->description;
+
+        return $data;
+    }
+
+    public function parseProductPurchaseData($data, $productName, $orgName) {
+
+        $data->title = str_replace("%%PRODNAME%%", $productName, $data->title);
+
+        $data->title = str_replace("%%ORGNAME%%", $orgName, $data->title);
+
+        $data->description = str_replace("%%PRODNAME%%", $productName, $data->description);
+
+        return $data;
+    }
+
+    public function parseCauses($causes) {
+
+        $list = array();
+
+        foreach ($causes as $cause) {
+
+            $icon = "";
+            $desc = "";
+            $ref = "";
+
+            if ($cause->cause_parent_id == 0) {
+                $icon = $this->getCauseIcon($cause->cause_name);
+            } else {
+
+                $tmp = Causes::find($cause->cause_parent_id);
+
+                $icon = $this->getCauseIcon($tmp->cause_name);
+            }
+
+            if (isset($cause->reference)) {
+                $ref = $cause->reference;
+            }
+
+            $list[] = array(
+                "name"      => $cause->cause_name,
+                "alias"     => $cause->cause_alias,
+                "desc"      => $cause->description,
+                "descExp"   => explode(" ", $cause->description),
+                "icon"      => $icon,
+                "id"        => $cause->cause_id,
+                "reference" => $ref,
+                "hashtags"  => $cause->cause_instagram_hashtag,
+                "orgCauseId"=> $cause->orgCauseId
+            );
+        }
+        return $list;
+    }
+
+    public function cleanSocialLink($link, $platform) {
+
+        $url = "<a href='" . $this->getSocialUrl($link, $platform) . "' target='_blank' class='blue'>";
+        $handle = "";
+
+        if (preg_match("/^https/", $link)) {
+
+            if (preg_match("/^https:\/\/www/", $link)) {
+
+                $handle = str_replace("https://www." . $platform . ".com", "", $link);
+            } else {
+                $handle = str_replace("https://" . $platform . ".com", "", $link);
+            }
+        } else if (preg_match("/^http/", $link)) {
+            if (preg_match("/^http:\/\/www/", $link)) {
+
+                $handle = str_replace("http://www." . $platform . ".com", "", $link);
+            } else {
+                $handle = str_replace("http://" . $platform . ".com", "", $link);
+            }
+        } else if (preg_match("/^www/", $link)) {
+            $handle = str_replace("www." . $platform . ".com", "", $link);
+        } else {
+            $handle = str_replace($platform . ".com", "", $link);
+        }
+
+        if (strlen($handle) > 20) {
+            return $url . substr($handle, 0, 20) . "...</a>";
+        } else {
+            return $url . $handle . "</a>";
+        }
+    }
+
+    public function getSocialUrl($link, $platform) {
+
+        if (preg_match("/^https/", $link) || preg_match("/^http/", $link)) {
+
+            return $link;
+        } else if (preg_match("/^www/", $link)) {
+            $handle = str_replace("www." . $platform . ".com", "", $link);
+
+            return "https://www." . $platform . ".com" . $handle . "'";
+        } else {
+            $handle = str_replace($platform . ".com", "", $link);
+
+            return "https://www." . $platform . ".com" . $handle . "'";
+        }
+    }
+
+    public function sendXMLviaCurl($xmlRequest,$gatewayURL) {
+       // helper function demonstrating how to send the xml with curl
+
+
+        $ch = curl_init(); // Initialize curl handle
+        curl_setopt($ch, CURLOPT_URL, $gatewayURL); // Set POST URL
+
+        $headers = array();
+        $headers[] = "Content-type: text/xml";
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers); // Add http headers to let it know we're sending XML
+        $xmlString = $xmlRequest->saveXML();
+        curl_setopt($ch, CURLOPT_FAILONERROR, 1); // Fail on errors
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1); // Allow redirects
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); // Return into a variable
+        curl_setopt($ch, CURLOPT_PORT, 443); // Set the port number
+        curl_setopt($ch, CURLOPT_TIMEOUT, 30); // Times out after 30s
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $xmlString); // Add XML directly in POST
+
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
+
+
+        // This should be unset in production use. With it on, it forces the ssl cert to be valid
+        // before sending info.
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+
+        if (!($data = curl_exec($ch))) {
+            print  "curl error =>" .curl_error($ch) ."\n";
+            throw New Exception(" CURL ERROR :" . curl_error($ch));
+
+        }
+        curl_close($ch);
+
+        return $data;
+    }
+
+    public function appendXmlNode($domDocument, $parentNode, $name, $value) {
+        $childNode      = $domDocument->createElement($name);
+        $childNodeValue = $domDocument->createTextNode($value);
+        $childNode->appendChild($childNodeValue);
+        $parentNode->appendChild($childNode);
+    }
+
+    private function getCauseIcon($causename) {
+
+        switch (strtolower($causename)) {
+            case "human rights":
+                return "humanrights";
+                break;
+            case "clean water":
+                return "water";
+                break;
+            case "children/youth":
+                return "children";
+                break;
+            default:
+                return strtolower($causename);
+                break;
+        }
+    }
+
+    public function getCauseIconClass($cause) {
+
+        if($cause == 1 || $cause == 'Environment' || $cause == 588){ return 'pwi-cause-environment-stroke'; }
+        if($cause == 20 || $cause == 'Family' || $cause == 589){ return 'pwi-cause-family-stroke'; }
+        if($cause == 23 || $cause == 'Poverty' || $cause == 582){ return 'pwi-cause-poverty-stroke'; }
+        if($cause == 43 || $cause == 'Clean Water' || $cause == 585){ return 'pwi-cause-water-stroke'; }
+        if($cause == 22 || $cause == 'Education' || $cause == 587){ return 'pwi-cause-education-stroke'; }
+        if($cause == 45 || $cause == 'Government' || $cause == 590){ return 'pwi-cause-government-stroke'; }
+        if($cause == 21 || $cause == 'Human Rights' || $cause == 592){ return 'pwi-cause-humanrights-stroke'; }
+        if($cause == 44 || $cause == 'Economy' || $cause == 586){ return 'pwi-cause-economy-stroke'; }
+        if($cause == 24 || $cause == 'Religion' || $cause == 583){ return 'pwi-cause-religion-stroke'; }
+        if($cause == 46 || $cause == 'Health' || $cause == 591){ return 'pwi-cause-health-stroke'; }
+        if($cause == 47 || $cause == 'Children/Youth' || $cause == 588){ return 'pwi-cause-children-stroke'; }
+        return '';
+    }
+
+    public function url2embed($url){
+        $video_id = $this->getYoutubeIdFromUrl($url);
+        if($video_id){
+            return '<iframe width="560" height="315" src="https://www.youtube.com/embed/'.$video_id.'?autoplay=1&showinfo=0" frameborder="0" allowfullscreen></iframe>';
+        }
+        return '';
+    }
+
+    /**
+     * get youtube video ID from URL
+     *
+     * @param string $url
+     * @return string Youtube video id or FALSE if none found. 
+     */
+    public function getYoutubeIdFromUrl($url){
+        $pattern = 
+            '%^# Match any youtube URL
+            (?:https?://)?  # Optional scheme. Either http or https
+            (?:www\.)?      # Optional www subdomain
+            (?:             # Group host alternatives
+              youtu\.be/    # Either youtu.be,
+            | youtube\.com  # or youtube.com
+              (?:           # Group path alternatives
+                /embed/     # Either /embed/
+              | /v/         # or /v/
+              | /watch\?v=  # or /watch\?v=
+              )             # End path alternatives.
+            )               # End host alternatives.
+            ([\w-]{10,12})  # Allow 10-12 for 11 char youtube id.
+            $%x'
+            ;
+        $result = preg_match($pattern, $url, $matches);
+        if ($result) {
+            return $matches[1];
+        }
+        return false;
+    }
+
+    public function saveShippingAddress( $data ){
+        UserAddress::create([
+            "user_addr_user_id"         => $data["user_id"],
+            "user_addr_address_type"    => "shipping",
+            "user_addr_line1"           => $data["shipping_address_line1"],
+            "user_addr_line2"           => $data["shipping_address_line2"],
+            "user_addr_city"            => $data["shipping_city"],
+            "user_addr_country_code"    => $data["shipping_country"],
+            "user_addr_state"           => $data["shipping_state"],
+            "user_addr_zip"             => $data["shipping_zip"],
+            "user_addr_isDefault"       => "N",
+            "user_addr_status"          => "active",
+            "user_addr_fname"           => $data["billing_first_name"],
+            "user_addr_lname"           => $data["billing_last_name"]
+        ]);
+    }
+
+    public function saveBillingAddress( $data ){
+
+        UserAddress::create([
+            "user_addr_user_id"         => $data["user_id"],
+            "user_addr_address_type"    => "billing",
+            "user_addr_line1"           => $data["billing_address_line1"],
+            "user_addr_line2"           => $data["billing_address_line2"],
+            "user_addr_city"            => $data["billing_city"],
+            "user_addr_country_code"    => $data["billing_country"],
+            "user_addr_state"           => $data["billing_state"],
+            "user_addr_zip"             => $data["billing_zip"],
+            "user_addr_isDefault"       => "N",
+            "user_addr_status"          => "active",
+            "user_addr_fname"           => $data["first_name"],
+            "user_addr_lname"           => $data["last_name"]
+        ]);
+    }
+
+    public function getQuickViews( $orgId ){
+
+        $views = array( );
+
+        $views["pwi"] = (int)Stats::where('type','=','date')->sum('pageviews');
+
+        $location = DB::table("pwi_org_subcause_countries AS scc")
+                    ->select(DB::raw("SUM(DISTINCT ga.pageviews ) AS LocationViews"))
+                    ->join("pwi_stats_ga AS ga", "ga.country_id", "=", "org_sc_item_id")
+                    ->where( "scc.org_sc_status", "=", "active")
+                    ->where( "scc.org_sc_type", "=", "country")
+                    ->where( "scc.org_id", "=", $orgId )
+                    ->get( );
+
+        $views["location"] = (int)$location[0]->LocationViews;
+
+        $cause  = Stats::where("scc1.org_id", "=", $orgId)
+                ->leftJoin("pwi_org_subcause_countries AS scc1", function( $join){
+                    $join->on('scc1.cause_id','=', 'pwi_stats_ga.cause_id')
+                         ->where('scc1.org_sc_status', '=', 'active');
+                })
+                ->leftJoin("pwi_org_subcause_countries AS scc2", function( $join){
+                    $join->on("scc2.org_sc_item_id", "=", "pwi_stats_ga.cause_id")
+                         ->where("scc2.org_sc_status", "=", "active")
+                         ->where("scc2.org_sc_type", "=", "subcause");
+                })
+                ->select(DB::raw("SUM( DISTINCT pwi_stats_ga.pageviews) AS CauseViews"))
+                ->get( );
+
+        $views["causes"] = (int)$cause[0]->CauseViews;
+
+        $profileViews   = Stats::where("org_id", "=", $orgId)
+                        ->select("pageviews")
+                        ->get( );
+
+        if( sizeof( $profileViews ) > 0 ){
+            $views["profileViews"] = $profileViews[0]->pageviews;
+        }else{
+            $views["profileViews"] = 0;
+        }
+        
+
+        $followers = DB::table("pwi_user_org")
+                    ->where("org_id", "=", $orgId)
+                    ->count( );
+
+        $views["followers"] = (int)$followers;
+
+        return $views;
+    }
+
+    public function getRandomArray( $arr, $number ){
+
+        $tmp = array_rand( $arr, $number );
+
+        $newArray = array( );
+
+        foreach( $tmp as $k => $v ){
+            $newArray[$k] = $v;
+        }
+
+        return $newArray;
+    }
+
+    public function generateAlias( $table, $aliasText, $idColumn, $id = "", $aliasColumn = "alias" ){
+
+        $alias = "";
+
+        $alias = str_replace("&amp;", "and", $aliasText);
+        $alias = htmlspecialchars_decode($alias, ENT_QUOTES);
+        $alias = str_replace("-", " ", $alias);
+        $alias = preg_replace("/[^a-zA-Z0-9\s]/", "", $alias);
+        $alias = preg_replace('/[\r\n\s]+/xms', ' ', trim($alias));
+        $alias = strtolower( str_replace(" ", "-", $alias) );
+
+        $duplicates = DB::table( $table )
+                        ->where($aliasColumn, $alias)
+                        ->count( );
+
+        if( $duplicates > 0 ){
+            $randStr = $this->rand_str( 4 );
+            $alias   = $this->generateAlias( $table, $alias . "-" . $randStr, $idColumn, $id, $aliasColumn );
+        }
+
+        return strtolower( $alias );
+    }
+
+    private function rand_str( $length = 32, $chars = "abcdefghijklmnopqrstuvwxyz1234567890"){
+        $chars_length = (strlen($chars) - 1);
+        $string = $chars{rand(0, $chars_length)};
+        for ($i = 1; $i < $length; $i = strlen($string)) {
+            $r = $chars{rand(0, $chars_length)};
+            if ($r != $string{$i - 1})
+                $string .= $r;
+        }
+        return $string;
+    }
+
+    public static function checkKeyValueExists( $array, $key, $value ){
+
+        $found = FALSE;
+
+        foreach( $array as $k => $v ){
+
+            if( is_array( $v ) ){
+                if( self::checkKeyValueExists( $v, $key, $value ) ){
+                    $found = TRUE;
+                }
+            }else{
+                if( $k == $key && $v == $value ){
+                    $found = TRUE;
+                }
+            }
+        }
+        return $found;
+    }
+
+    public static function getVideoFromIframe( $iframe ){
+        
+        $iframeValues = explode(" ", $iframe);
+
+        $videoLink = "";
+
+        foreach( $iframeValues as $item ){
+
+            $keyValue = explode("=", $item );
+
+            if( sizeof( $keyValue ) > 1 ){
+                if( $keyValue[0] == "src" ){
+                    return( str_replace('"', "", $keyValue[1] ) );
+                }
+            }
+        }
+
+        return FALSE;
+    }
+
+    public function createImage( $file, $params, $path){
+        return Image::make($file, $params)->save($path);
+    }
+
+    public function getVideoData( $videoUrl ){
+
+        $youtubePattern         = "/youtube/";
+        $youtubeShortPattern    = "/youtu.be/";
+        $vimeoPattern           = "/vimeo/";
+
+        $videoImg = "";
+        $videoLink = "";
+
+        if( preg_match($youtubePattern, $videoUrl ) || preg_match( $youtubeShortPattern, $videoUrl ) ){
+            $videoType = "youtube";
+
+            $videoId = \Youtube::parseVidFromURL( $videoUrl );
+
+            $video = null;
+
+            try{
+                $video = \Youtube::getVideoInfo( $videoId );
+            }catch( \Exception $e ){
+                dd( $e );
+            }
+            
+            if( ! $video ){
+                return array("status"=>false,"msg"=>"Not a valid Youtube Video.");
+            }
+
+            return array($video->snippet->thumbnails->default->url,  $this->getVideoFromIframe( $video->player->embedHtml ) );
+        }else if( preg_match( $vimeoPattern, $videoUrl ) ){
+            $videoType = "vimeo";
+
+            $ch = curl_init( );
+
+            $vimeoOembedUrl = "https://vimeo.com/api/oembed.json?url=" . urlencode($videoUrl);
+
+            curl_setopt($ch, CURLOPT_URL, $vimeoOembedUrl );
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+            $vimeoResponse = json_decode( curl_exec( $ch ) );
+
+            if( is_null( $vimeoResponse ) ){
+                return array("status"=>false, "msg"=>"The Video is not validated through Vimeo.");
+            }
+
+            curl_close( $ch );
+
+            return array( $vimeoResponse->thumbnail_url, $this->getVideoFromIframe( $vimeoResponse->html ) );
+
+        }else{
+            return array("status"=>false, "msg"=>"Not a valid video to upload. Please use: Youtube or Vimeo");
+        }
+    }
+}
+
+

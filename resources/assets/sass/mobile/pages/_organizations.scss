@@ -1,0 +1,299 @@
+/* Index Page */
+
+
+
+/* Indivdual Page */
+
+#organization-page{
+
+	div[data-role='main']{
+		background-color: #f9f9f9;	
+	}
+}
+
+.org-top{
+	width: 100%;
+	height: 240px;
+	position: relative;
+	
+	.coverphoto{
+		width: 100%;
+		height: 125px;
+	}
+
+	.logo-container{
+		width: 100%;
+		position: absolute;
+		top: 54px;
+		text-align: center;
+
+		img{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #fff;
+			@include border-radius( 4px );
+		}
+
+		.org-name{
+			color: black;
+			font-weight: 700;
+			font-size: 18px;
+		}
+	}
+
+	.actions{
+		width: 100%;
+		height: 45px;
+		margin-top: 70px;
+
+		div{
+			width: 33.3%;
+			height: 32px;
+			text-align: center;
+			float: left;
+			padding-top: 13px;
+
+			a{
+				color: #fff;
+				text-decoration: none;
+				text-transform: uppercase;
+				font-size: 18px;
+				padding-top: 13px;
+			}
+		}
+
+		.donate{
+			background-color: $money;
+		}
+
+		.follow{
+			background-color: $red;
+		}
+
+		.share{
+			background-color: $blue;
+		}
+	}
+}
+
+.about{
+	margin-top: 10px;
+	background-color: #fff;
+	border-top: 1px solid #e5e5e5;
+
+	.title{
+		padding: 15px 20px;
+		font-weight: 700;
+		font-size: 18px;
+		color: black;
+		border-bottom: 1px solid #e5e5e5;
+	}
+
+	.content{
+		padding: 15px 20px;
+		color: $grey;
+		font-size: 14px;
+		border-bottom: 1px solid #e5e5e5;
+	}
+}
+
+.generalInfo{
+	width: 100%;
+	padding: 15px 0px;
+	 
+	li{
+		a{
+			color: black;
+			font-size: 18px;
+			background-color: #fff !important;
+		}
+	}
+}
+
+.impacts-causes{
+	margin-top: 10px;
+	background-color: #fff;
+	border-top: 1px solid #e5e5e5;
+
+	.title{
+		padding: 15px 20px;
+		color: $red;
+		background-color: #fff;
+		font-size: 18px;
+		font-weight: 700;
+	}
+
+	ul[data-role=listview]{
+		margin-top: 0px;
+		margin-bottom: 0px;
+	}
+
+	li{
+		padding: 0px !important;
+		min-height: 45px;
+		@include no-border( );
+		@include border-radius( 0px );
+
+		.ui-btn-icon-left{
+			padding-left: 0;
+		}
+
+		.ui-btn-icon-left:after{
+			display: none;
+		}
+		h2{
+			margin: 0px !important;
+			@include border-radius( 0px );
+			a{
+				background-color: #fff !important;	
+				padding-left: 20px !important;
+				@include border-radius( 0px );
+				border: none;
+
+
+				i{
+					color: $grey;
+					position: absolute;
+					top: 5px;
+				}
+
+				span{
+					margin-left: 40px;
+					font-size: 14px;
+				}
+			}
+		}
+		.cause-desc{
+			background-color: #f1f1f1;
+			color: $grey;
+			padding: 10px;
+			font-size: 14px;
+		}
+
+		a{
+			padding-left: 20px;
+			background-color: #fff !important;
+		}
+
+		.flag-icon{
+			position: absolute;
+			width: 40px;
+			height: 27px;
+		}
+
+		.country-name{
+			margin-left: 50px;
+			font-weight: 300;
+			font-size: 18px;
+		}
+	}
+}
+
+.org-photos{
+
+	overflow: hidden;
+
+	.photo-list-container{
+		height: 120px;
+		overflow-y: hidden;
+		overflow-x: auto;
+		position: relative;
+		background-color: #fff;
+		border-bottom: 1px solid #e5e5e5;
+
+		.photo-list{
+			display: inline;
+			list-style-type: none;
+			padding-left: 10px;
+			margin-top: 10px;
+			height: 100px;
+			position: absolute;
+
+			li{
+				display: inline;
+			}
+		}	
+	}
+}
+
+.org-videos{
+	overflow: hidden;
+
+	.video-list-container{
+		height: 120px;
+		overflow-y: hidden;
+		overflow-x: auto;
+		position: relative;
+		background-color: #fff;
+		border-bottom: 1px solid #e5e5e5;
+	}
+
+	.video-list{
+		display: inline;
+		list-style-type: none;
+		padding-left: 10px;
+		margin-top: 10px;
+		height: 100px;
+		position: absolute;
+
+		li{
+			display: inline;
+
+			img{
+				width: 176px;
+				height: 99px;
+			}
+		}
+	}
+}
+
+.org-tweets{
+	border-bottom: 1px solid #e5e5e5;
+}
+
+#contactInfo{
+
+	.information-header{
+		background-color: #fff;
+		width: 100%;
+		height: 45px;
+		border-bottom: 1px solid #e5e5e5;
+
+		div{
+			color: red;
+			font-size: 18px;
+			padding-left: 20px;
+			padding-top: 12px;
+		}
+	}
+
+	.information-item{
+		background-color: #fff;
+		height: 45px;
+		border-bottom: 1px solid #e5e5e5;
+		display: table;
+		width: 100%;
+
+		.item-col{
+			display: table-cell;
+			height: 45px;
+			vertical-align: middle;
+			font-size: 14px;
+		}
+
+		.icon{
+			color: #d0d3d5;
+			font-weight: 400;
+		}
+
+		.blue{
+			color: $blue !important;
+			text-decoration: none;
+		}
+
+		.grey{
+			color: $grey !important;
+			text-decoration: none;
+		}
+	}
+}

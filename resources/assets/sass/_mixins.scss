@@ -1,0 +1,137 @@
+@mixin border-radius( $radius ){
+    -webkit-border-radius: $radius !important;
+       -moz-border-radius: $radius !important;
+        -ms-border-radius: $radius !important;
+            border-radius: $radius !important;
+}
+
+@mixin bgSize( $var ){
+    -webkit-background-size: $var;
+       -moz-background-size: $var;
+         -o-background-size: $var;
+            background-size: $var;
+}
+
+@mixin placeholderStyleContent( $fontSize, $color ){
+    font-size: $fontSize;
+    color: $color;
+    font-weight: 300;
+}
+
+@mixin placeholderStyle( $fontSize, $color){
+    
+    ::-webkit-input-placeholder{
+        @include placeholderStyleContent( $fontSize, $color);
+    }
+    
+    :-moz-placeholder{
+        @include placeholderStyleContent( $fontSize, $color);
+    }
+    
+    ::-moz-placeholder{
+        @include placeholderStyleContent( $fontSize, $color);
+    }
+    
+    :-ms-input-placeholder{
+        @include placeholderStyleContent( $fontSize, $color);
+    }
+    
+    ::-ms-input-placeholder{
+        @include placeholderStyleContent( $fontSize, $color);
+    }
+    
+    :placeholder-show{
+        @include placeholderStyleContent( $fontSize, $color);
+    }
+}
+
+@mixin pwi( $fontWeight ){
+    font-weight: $fontWeight;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+@mixin country-dimensions( ){
+    width: 100%;
+    max-width: 1190px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    @include border-radius( 4px );
+}
+
+@mixin box-outline( ){
+    box-shadow: 0px 0px 7px rgba(23,18,18,.05);
+    border: 1px solid #f1f1f1;
+    @include border-radius( 4px );
+}
+
+@mixin admin-box-outline( ){
+    -webkit-box-shadow: 0px 0px 3px rgba(241,241,241,0.05) !important; 
+    -moz-box-shadow: 0px 0px 3px rgba(241,241,241,0.05) !important; 
+    box-shadow: 0px 0px 3px rgba(241,241,241,0.05) !important;
+    border: 1px solid $borderColor;
+    @include border-radius( 4px );
+}
+
+@mixin header-outline( ){
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, .5);
+    border-bottom: 1px solid #f1f1f1;
+}
+
+@mixin textBoxOutline( ){
+	-webkit-box-shadow: 0px 0px 7px rgba(0,0,0,0.05) !important; 
+	-moz-box-shadow: 0px 0px 7px rgba(0,0,0,0.05) !important; 
+	box-shadow: 0px 0px 7px rgba(0,0,0,0.05) !important;
+	height: 45px !important;
+}
+
+@mixin no-border{
+	border: none;
+	box-shadow: 0px 0px 0px rgba( 255,255,255,1);
+}
+
+@mixin box-title( ){
+    font-size: 18px;
+    font-weight: 300;
+}
+
+@mixin squareImg( $size ){
+    height: $size;
+    width: $size;
+}
+
+@mixin normalBlue( ){
+    font-size: 12px;
+    color: $blue;
+    font-weight: normal;
+}
+
+@mixin columns( $cnt ){
+    -webkit-column-count: $cnt !important; /* Chrome, Safari, Opera */
+    -moz-column-count: $cnt !important; /* Firefox */
+    column-count: $cnt !important;
+}
+
+@mixin font( $size, $weight, $color ){
+    font-size: $size;
+    font-weight: $weight;
+    color: $color;
+}
+
+@mixin button( $w, $h, $bg ){
+    width: $w;
+    height: $h;
+    background-color: $bg;
+    font-size: 18px;
+    font-weight: $demiBold;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    @include border-radius( 4px );
+}
+
+@mixin admin-grey-header{
+    font-size: 18px;
+    color: $darkGrey;
+}

@@ -1,0 +1,10 @@
+$(document).on("pageload", function( ){
+
+	alert('hi');
+	
+	var hpHeight = $(".indexWrapper").height( );
+
+	console.log( hpHeight );
+
+});
+//# sourceMappingURL=mobileAdjust.js.map

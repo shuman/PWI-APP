@@ -1,0 +1,97 @@
+.normal-footer{
+    background-color: #fff;
+    height: 65px;
+    width: 100%;
+    z-index: 1;
+    color: #33aef4;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    /*padding-left: 80px;
+    padding-right: 80px;*/
+    z-index:1;
+    box-shadow: 0px -5px 20px 0px rgba(0,0,0,0.05);
+    
+    .left-side{
+        padding-top: 25px;
+        padding-right: 0px;
+        .project{
+            @include pwi( 100 );
+        }
+
+        .world{
+            @include pwi( 400 );
+        }
+
+        .impact{
+            @include pwi( 900 );
+        }    
+    }
+    
+    .footer-links{
+        display: inline;
+        padding-top: 27px;
+        padding-left: 0px;
+        padding-right: 0px;
+            
+        a, a:visited, a:focus, a:hover{
+            font-size: 14px;
+            color: #8899a6;    
+            font-weight: 300;
+            text-decoration: none;
+            padding-left: 5px; 
+            padding-right: 5px;
+        }
+        
+     	.openSuggestNP, .openSuggestNP:visited, .openSuggestNP:hover, .openSuggestNP:focus{
+	     	color: $red;
+     	}   
+    }
+    
+    
+    
+    .social-links{
+        padding-top: 25px;
+        padding-left: 0px;
+        text-align: right;
+        
+        a{
+			padding: 0px 5px;
+			i:before{
+				font-size: 2em;
+			}
+		}
+		
+		.pwi-social-facebook{
+			color: #3c5995;
+		}
+		
+		.pwi-social-twitter{
+			color: #33aef4;	
+		}
+		
+		.pwi-social-instagram{
+			color: #6b5446;
+		}
+		
+		.pwi-social-pinterest{
+			color: #f1363a;
+		}
+	}
+	
+	.pwi-footer-action:hover{
+		cursor: pointer;
+	}
+}
+
+.mobile-footer{
+	display: none;
+	background-color: #fff;
+    height: auto;
+    width: 100%;
+    z-index: 1;
+    color: #33aef4;
+    position: absolute;
+    bottom: 0;
+    
+}

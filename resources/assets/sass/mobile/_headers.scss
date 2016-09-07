@@ -1,0 +1,13 @@
+.generic-header{
+	@include header-outline( );
+	background-color: #fff !important;
+	height: 45px;
+	z-index: 10;
+
+	img{
+		width: 34px;
+		height: 34px;
+		margin-top: 5px;
+		margin-left: 29px;	
+	}
+}

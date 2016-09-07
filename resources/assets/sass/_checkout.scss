@@ -1,0 +1,963 @@
+#crowdFundingCheckout{
+    
+    position:           absolute;
+    top:                75px;
+    background-color:   rgba(255, 255, 255, .95);
+    padding-top:        50px;
+    
+    .checkout{
+        display:        block;
+        margin-left:    auto;
+        margin-right:   auto;
+        width:          590px;
+        overflow:       hidden;
+        
+        .title{
+            font-size:      36px;
+            color:          $black;
+            font-weight:    700;
+        }
+
+        .organization{
+            color:      $blue;
+            font-size:  24px;
+            font-weight:700;
+        }
+        
+        .incentives{
+            
+            float: left;
+            width: 100%;
+            position: relative;
+            
+            p{
+                width:      100%;
+                color:      $black;
+                font-size:  24px;
+                font-weight:300;
+            }
+            
+            .just-contribute{
+                border:             1px solid #e5e5e5;
+                @include            border-radius( 4px );
+                padding:            10px 5px;
+                font-weight:        700;
+                font-size:          18px;
+                color:              $black;
+                background-color:   #fff;
+                max-width:          590px
+            }
+            
+            .just-contribute:hover{
+                @extend .selected;
+                cursor: pointer;
+            }
+            
+            .incentive{
+                border:     1px solid #e5e5e5;
+                @include border-radius( 4px );
+                max-width:  590px;
+                
+            }
+            
+            .incentive:hover{
+                @extend .selected;
+                cursor: pointer;
+                
+            }
+        }
+        
+        .donation{
+                    
+            display: none;
+            height: 75px;
+
+
+            p{
+                font-weight: 300;
+                font-size:   18px;
+                color:       #fff;
+            }
+
+            .denomination{
+                text-align: center;
+                width: 50%;
+                padding: 0px 5px;
+
+                input{
+                    @include border-radius( 4px );
+                    border: none;
+                    padding: 5px;
+                    color: $black;
+                    font-weight: 700;
+                    font-size: 18px;
+                    width: 100%;
+                }
+            }
+
+            .action{
+                text-align: center;
+                width: 50%;
+                padding: 0px 5px;
+
+                button{
+                    border: 1px solid #fff;
+                    @include border-radius( 4px );
+                    width: 100%;
+                    text-align: center;
+                    text-transform: uppercase;
+                    background-color: inherit;
+                    color: #fff;
+                    padding: 5px;
+                    height: 45px;
+                    font-size: 18px;
+                }
+                
+                
+            }
+        }
+        
+        .details{
+            width: 100%;
+            float: left;
+            position: relative;
+            background-color: #fff;
+            
+            p{
+                width:      100%;
+                color:      $black;
+                font-size:  18px;
+                font-weight:300;
+                
+                a{
+                    color:      $blue;
+                    font-size:  14px;
+                }
+            }
+            
+            .details-incentive{
+                @include box-outline( );
+                @include border-radius( 4px );
+                padding: 10px;
+                
+                .title{
+                    color: $black;
+                    font-weight: 700;
+                    font-size: 18px;
+                }
+                .description{
+                    color: $black;
+                    font-weight: 300;
+                    font-size:12px;
+                }
+                
+                .donation-amount-header{
+                    margin-top: 10px;
+                    color: $black;
+                    font-weight: 300;
+                    font-size: 18px;
+                }
+                
+                .donation-amount{
+                    
+                    display: inline-block;
+                    width: 100%;
+                    
+                    span{
+                        color: black;
+                        font-size: 24px;    
+                    }
+                    button{
+                        color: #fff;
+                        width: 270px;
+                        height: 45px;
+                        @include border-radius( 4px );
+                        font-size: 16px;
+                        border: none;
+                        text-transform: uppercase;
+                        font-size: 18px;
+                    }
+                    
+                    .edit-amount{
+                        background-color: $money;
+                    }
+                    
+                    .edit-incentive{
+                        background-color: $red;
+                    }
+                }
+                .new-donation-amount{
+                    display: none;
+                    margin-top: 10px;
+                    
+                    input{
+                        border: 1px solid $grey;
+                        @include border-radius( 4px );
+                        padding: 5px;
+                    }
+                    
+                    button{
+                        @include border-radius( 4px );
+                        text-transform: uppercase;
+                        font-size: 18px;
+                        padding: 5px 10px;
+                    }
+                    
+                    .save-new{
+                        background-color: $money;
+                        color: #fff;
+                        border: none;
+                    }
+                    
+                    .cancel-new{
+                        background-color: #fff;
+                        border: 1px solid $black;
+                        color: $black;
+                        
+                    }
+                }
+                
+                
+            }
+            
+            .information{
+                
+                @include box-outline( );
+                @include border-radius( 4px );
+                padding: 10px;
+                
+                .signin{
+                    background-color: $blue;
+                    color: #fff;
+                    text-transform: uppercase;
+                    width: 190px;
+                    height: 45px;
+                    border: none;
+                    @include border-radius( 4px );
+                }
+                
+                .form-control{
+                    border: 1px solid $grey;
+                }
+                .form-control::-webkit-input-placeholder{
+                    color: $grey;
+                }
+                .form-control::-moz-placeholder{
+                    color: $grey;
+                }
+                .form-control:-ms-input-placeholder{
+                    color: $grey;
+                }
+                .form-control:-moz-placeholder{
+                    color: $grey;
+                }
+                
+                .half-form-group-left{
+                    width: 50%;
+                    padding: 5px 5px 5px 0px;
+                    float: left;
+                    display: inline-block;
+                } 
+                
+                .half-form-group-right{
+                    width: 50%;
+                    padding: 5px 0px 5px 5px;
+                    float: left;
+                    display: inline-block;
+                }
+            }
+            
+            .continueCheckout{
+                background-color: $money;
+                border: none;
+                @include border-radius( 4px );
+                color: #fff;
+                text-transform: uppercase;
+                width: 270px;
+                height: 45px;
+                font-size: 18px;
+            }
+            
+            .continueCheckout:hover{
+	            color: $money;
+	            background-color: rgba(533,219,84,0.25);
+	            cursor: pointer;
+            }
+        }
+        
+        .review{
+            width: 100%;
+            float: left;
+            position: relative;
+            font-size: 12px;
+            color: $grey;
+            
+            .order-review{
+                @include box-outline( );
+            }
+            
+            p.header{
+                font-weight: 700;
+                font-size: 16px;
+                color: $black;
+            }
+            
+            .order-review-incentive{
+                
+                padding: 5px;
+                
+                .incentive-title{
+                    font-weight: 700;
+                    color: $grey;
+                    font-size: 18\6px;
+                }
+                
+                .incentive-description{
+                    font-weight: 300;
+                    color: $grey;
+                    font-size: 12px;
+                }
+                
+                .incentive-amount{
+                    
+                    display: inline-block;
+                    width: 100%;
+                        
+                    
+                    p{
+                        font-weight: 300;
+                        color: $black;
+                        font-size: 16px;
+                    }
+                }
+            }
+            
+            .order-review-shipping-address{
+                font-size: 16px;
+                padding: 5px;
+            }
+            
+            .order-review-cc-billing{
+                font-size: 16px;
+                padding: 5px;
+            }
+            
+            .donation-amount{
+                font-weight: 700;
+                color: $money;
+                font-size: 16px;
+            }
+            
+            .place-order{
+                display: inline-block;
+                width: 100%;
+                padding: 5px;
+            }
+            
+            button{
+                width: 260px;
+                height: 45px;
+                color: #fff;
+                text-transform: uppercase;
+                @include border-radius( 4px );
+                border: none;
+                font-size: 18px;
+            }
+            
+            .edit-button{
+                background-color: $red;
+            }
+            
+            .edit-button:hover{
+	            color: $red;
+	            background-color: rgba(241,101,127,0.25);
+	            cursor: pointer;
+            }
+            
+            .checkout-button{
+                background-color: $money;
+            }
+            
+            .checkout-button:hover{
+	            color: $money;
+	            background-color: rgba(53,219,84,0.25);
+	            cursor: pointer;
+            }
+        }
+        
+        .thankyou{
+            width: 100%;
+            float: left;
+            position: relative;
+        }
+    }
+}
+
+#organizationCheckout, #causeCheckout, #countryCheckout{
+    
+    position:           absolute;
+    top:                75px;
+    background-color:   rgba(255, 255, 255, .95);
+    padding-top:        50px;
+    
+    .checkout{
+        display:        block;
+        margin-left:    auto;
+        margin-right:   auto;
+        width:          590px;
+        overflow:       hidden;
+        
+        .title{
+            font-size:      36px;
+            color:          $black;
+            font-weight:    700;
+        }
+        
+        p.header{
+            font-weight: 300;
+            font-size: 20px;
+            color: $black;
+        }
+        
+        .donation{
+            
+            float: left;
+            width: 100%;
+            position: relative;
+            
+            
+           p{
+                font-weight: 300;
+                font-size:   18px;
+                color:       #black;
+            }
+            
+            .donate{
+                
+                background-color: $money;
+                padding: 10px;
+                display: inline-block;
+                width: 100%;
+                
+                p{
+                    color: #fff;
+                }
+                
+                .denomination{
+                    text-align: center;
+                    width: 50%;
+                    padding: 0px 5px 0px 0px;
+
+                    input{
+                        @include border-radius( 4px );
+                        border: none;
+                        padding: 5px;
+                        color: $black;
+                        font-weight: 700;
+                        font-size: 18px;
+                        width: 100%;
+                    }
+                }
+
+                .action{
+                    text-align: center;
+                    width: 50%;
+                    padding: 0px 5px;
+
+                    button{
+                        border: 1px solid #fff;
+                        @include border-radius( 4px );
+                        width: 100%;
+                        text-align: center;
+                        text-transform: uppercase;
+                        background-color: inherit;
+                        color: #fff;
+                        padding: 5px;
+                        height: 45px;
+                    }
+                    
+
+                }
+                
+            }
+        }
+        
+        .details{
+            
+            float: left;
+            width: 100%;
+            position: relative;
+            
+            .details-donate{
+                
+                background-color: #fff;
+                color: $black;
+                @include box-outline( );
+                @include border-radius( 4px );
+                padding: 10px;
+                display: inline-block;
+                width: 100%;
+                
+                .donation-amount{
+                    
+                    display: inline-block;
+                    width: 100%;
+                    
+                    span{
+                        color: black;
+                        font-size: 24px;    
+                    }
+                    button{
+                        color: #fff;
+                        width: 270px;
+                        height: 45px;
+                        @include border-radius( 4px );
+                        font-size: 18px;
+                        border: none;
+                        text-transform: uppercase;
+                        background-color: $money
+                    }
+                    
+                    button:hover{
+	                    color: $money;
+	                    background-color: rgba( 53,219,84,0.25);
+	                    cursor: pointer;
+                    }
+                }
+            }
+            
+            .details-personal{
+                
+                .information{
+                
+                    @include box-outline( );
+                    @include border-radius( 4px );
+                    padding: 10px;
+
+                    .signin{
+                        background-color: $blue;
+                        color: #fff;
+                        text-transform: uppercase;
+                        width: 190px;
+                        height: 45px;
+                        border: none;
+                        @include border-radius( 4px );
+                    }
+
+                    .form-control{
+                        border: 1px solid $grey;
+                    }
+                    .form-control::-webkit-input-placeholder{
+                        color: $grey;
+                    }
+                    .form-control::-moz-placeholder{
+                        color: $grey;
+                    }
+                    .form-control:-ms-input-placeholder{
+                        color: $grey;
+                    }
+                    .form-control:-moz-placeholder{
+                        color: $grey;
+                    }
+
+                    .half-form-group-left{
+                        width: 50%;
+                        padding: 5px 5px 5px 0px;
+                        float: left;
+                        display: inline-block;
+                    } 
+
+                    .half-form-group-right{
+                        width: 50%;
+                        padding: 5px 0px 5px 5px;
+                        float: left;
+                        display: inline-block;
+                    }
+                }
+
+                .continueCheckout{
+                    background-color: $money;
+                    border: none;
+                    @include border-radius( 4px );
+                    color: #fff;
+                    text-transform: uppercase;
+                    width: 270px;
+                    height: 45px;
+                    font-size: 18px;
+                }
+                
+                .continueCheckout:hover{
+		            color: $money;
+		            background-color: rgba(533,219,84,0.25);
+		            cursor: pointer;
+	            }
+            }
+        }
+        
+        .review{
+            float: left;
+            width: 100%;
+            position: relative;
+            
+            .order-review{
+                @include box-outline( );
+                @include border-radius( 4px );
+                
+                .order-review-cc-billing{
+                    padding: 5px;
+                }
+                
+                .billing-info{
+                    display: inline-block;
+                    width: 100%;
+                    font-size: 18px;
+                }
+            }
+            
+            .place-order{
+                
+                display: inline-block;
+                width: 100%;
+                padding: 5px;
+                
+                .donation-amount{
+                    font-size: 24px;
+                    color: $black;
+                }
+            }
+            
+            button{
+                width: 260px;
+                height: 45px;
+                color: #fff;
+                text-transform: uppercase;
+                @include border-radius( 4px );
+                border: none;
+                font-size: 18px;
+            }
+            
+            .edit-button{
+                background-color: $red;
+            }
+            
+            .edit-button:hover{
+	            color: $red;
+	            background-color: rgba(241,101,127,0.25);
+	            cursor: pointer;
+            }
+            
+            .checkout-button{
+                background-color: $money;
+            }
+            
+            .checkout-button:hover{
+	            color: $money;
+	            background-color: rgba(53,219,84,0.25);
+	            cursor: pointer;
+            }
+        }
+    }
+}
+
+#productCheckout{
+    
+    position:           absolute;
+    top:                75px;
+    background-color:   rgba(255, 255, 255, .95);
+    padding-top:        50px;
+    
+    .checkout{
+        display:        block;
+        margin-left:    auto;
+        margin-right:   auto;
+        width:          590px;
+        overflow:       hidden;
+        
+        .title{
+            font-size:      36px;
+            color:          $black;
+            font-weight:    700;
+        }
+
+        .organization{
+            color:      $blue;
+            font-size:  24px;
+            font-weight:700;
+        }
+        
+        .details{
+            width: 100%;
+            float: left;
+            position: relative;
+            background-color: #fff;
+            
+            p{
+                width:      100%;
+                color:      $black;
+                font-size:  18px;
+                font-weight:300;
+                
+                a{
+                    color:      $blue;
+                    font-size:  14px;
+                }
+            }
+            
+            .detail-product-summary{
+                @include box-outline( );
+                @include border-radius( 4px );
+                padding: 10px;
+                display:inline-block; 
+                width: 100%; 
+                min-height: 130px;
+                
+                .title{
+                    color: $blue;
+                    font-weight: 700;
+                    font-size: 18px;
+                }
+                
+                .prod-org{
+	                color: $grey;
+	                font-weight: 300;
+	                font-size: 16px;
+                }
+                
+                .description{
+                    color: $black;
+                    font-weight: 300;
+                    font-size:12px;
+                }
+                
+                .donation-amount-header{
+                    margin-top: 10px;
+                    color: $black;
+                    font-weight: 300;
+                    font-size: 18px;
+                }
+                
+                .donation-amount{
+                    
+                    display: inline-block;
+                    width: 100%;
+                    
+                    span{
+                        color: $money;
+                        font-size: 24px;    
+                    }
+                    button{
+                        color: #fff;
+                        width: 270px;
+                        height: 45px;
+                        @include border-radius( 4px );
+                        font-size: 16px;
+                        border: none;
+                        text-transform: uppercase;
+                    }
+                    
+                    .edit-amount{
+                        background-color: $money;
+                    }
+                    
+                    .edit-incentive{
+                        background-color: $red;
+                    }
+                }
+                .new-donation-amount{
+                    display: none;
+                    margin-top: 10px;
+                    
+                    input{
+                        border: 1px solid $grey;
+                        @include border-radius( 4px );
+                        padding: 5px;
+                    }
+                    
+                    button{
+                        @include border-radius( 4px );
+                        text-transform: uppercase;
+                        padding: 5px 10px;
+                    }
+                    
+                    .save-new{
+                        background-color: $money;
+                        color: #fff;
+                        border: none;
+                    }
+                    
+                    .cancel-new{
+                        background-color: #fff;
+                        border: 1px solid $black;
+                        color: $black;
+                        
+                    }
+                }
+                
+                
+            }
+            
+            .information{
+                
+                @include box-outline( );
+                @include border-radius( 4px );
+                padding: 10px;
+                
+                .signin{
+                    background-color: $blue;
+                    color: #fff;
+                    text-transform: uppercase;
+                    width: 190px;
+                    height: 45px;
+                    border: none;
+                    @include border-radius( 4px );
+                }
+                
+                .form-control{
+                    border: 1px solid $grey;
+                }
+                .form-control::-webkit-input-placeholder{
+                    color: $grey;
+                }
+                .form-control::-moz-placeholder{
+                    color: $grey;
+                }
+                .form-control:-ms-input-placeholder{
+                    color: $grey;
+                }
+                .form-control:-moz-placeholder{
+                    color: $grey;
+                }
+                
+                .half-form-group-left{
+                    width: 50%;
+                    padding: 5px 5px 5px 0px;
+                    float: left;
+                    display: inline-block;
+                } 
+                
+                .half-form-group-right{
+                    width: 50%;
+                    padding: 5px 0px 5px 5px;
+                    float: left;
+                    display: inline-block;
+                }
+            }
+            
+            .continueCheckout{
+                background-color: $money;
+                border: none;
+                @include border-radius( 4px );
+                color: #fff;
+                text-transform: uppercase;
+                width: 270px;
+                height: 45px;
+                font-size: 18px;
+            }
+            
+            .continueCheckout:hover{
+	            color: $money;
+	            background-color: rgba(533,219,84,0.25);
+	            cursor: pointer;
+            }
+        }
+        
+        .review{
+            width: 100%;
+            float: left;
+            position: relative;
+            font-size: 12px;
+            color: $grey;
+            
+            .order-review{
+                @include box-outline( );
+            }
+            
+            p.header{
+                font-weight: 700;
+                font-size: 16px;
+                color: $black;
+            }
+            
+            .order-review-incentive{
+                
+                padding: 5px;
+                
+                .prod-title{
+                    color: $blue;
+                    font-weight: 700;
+                    font-size: 18px;
+                }
+                
+                .prod-org{
+	                color: $grey;
+	                font-weight: 300;
+	                font-size: 16px;
+                }
+            }
+            
+            .order-review-shipping-address{
+                font-size: 16px;
+                padding: 5px;
+            }
+            
+            .order-review-cc-billing{
+                font-size: 16px;
+                padding: 5px;
+            }
+            
+            .donation-amount{
+                font-weight: 700;
+                color: $money;
+                font-size: 16px;
+            }
+            
+            .place-order{
+                display: inline-block;
+                width: 100%;
+                padding: 5px;
+            }
+            
+            .product-total, product-total-amount{
+	            font-weight: 700;
+	            font-size: 18px;
+	            color: black;
+            }
+            
+            button{
+                width: 260px;
+                height: 45px;
+                color: #fff;
+                text-transform: uppercase;
+                @include border-radius( 4px );
+                border: none;
+                font-size: 18px;
+            }
+            
+            .edit-button{
+                background-color: $red;
+            }
+            
+            .edit-button:hover{
+	            color: $red;
+	            background-color: rgba(241,101,127,0.25);
+	            cursor: pointer;
+            }
+            
+            .checkout-button{
+                background-color: $money;
+            }
+            
+            .checkout-button:hover{
+	            color: $money;
+	            background-color: rgba(53,219,84,0.25);
+	            cursor: pointer;
+            }
+        }
+        
+        .thankyou{
+            width: 100%;
+            float: left;
+            position: relative;
+        }
+    }
+}

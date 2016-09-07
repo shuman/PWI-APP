@@ -1,0 +1,385 @@
+.projects{
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.project-header{
+    @include box-outline( );
+    height: 185px;
+    position: relative;
+    background-color: #fff;
+    
+    .coverphoto{
+        width: 100%;
+        height: 125px;
+    }
+    
+    .header-content{
+        padding-top: 5px;
+        padding-left: 20px;
+        
+        .project-name{
+            font-size: 18px;
+            font-weight: 700;
+            color: #292f33;
+        }
+        
+        .org-name{
+            font-size: 18px;
+            font-weight: 300;
+            color: $grey;
+        }
+        
+        .org-link{
+            a{
+                color: $blue;
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+.project-description{
+	
+	@include box-outline( );
+    height: auto;
+    position: relative;
+    background-color: #fff;
+    padding: 20px 15px;
+    
+    
+    .title{
+        font-size: 18px;
+        font-weight: 300;
+        color: #292f33;
+	}
+    
+    .content{
+        padding: 10px 0px;
+        font-size: 12px;
+        color: $grey;
+        font-weight: 300;
+    }
+    
+    .video{
+        
+        iframe{
+            margin-left:auto;
+            margin-right: auto;
+            display: block;
+            height: 316px;
+            width: 516px;
+        }
+    }
+}
+
+.project-comments{
+    
+    @include box-outline( );
+    height:auto;
+    position: relative;
+    background-color: #fff;
+    padding: 20px 15px;
+    
+    .title{
+        font-size: 18px;
+        font-weight: 300;
+        color: #292f33;
+        padding: 10px 0px;
+    }
+    
+    .comments{
+
+		.comment{
+
+            width: 100%;
+            padding: 10px 0px;
+
+            .name{
+                color: $grey;
+                font-size: 12px;
+                font-weight: 700;
+            }
+            .review{
+                font-weight: 300;
+                color: $grey;
+            }    
+        }
+    }
+}
+
+.project-info{
+    @include box-outline( );
+    padding: 20px 15px;
+    background-color: #fff;
+    
+    p{
+        @include box-title( );
+        padding-left: 0px;
+    }
+    
+    .info-item{
+        font-weight: 300;
+        color: $grey;
+        font-size: 12px;
+        margin: 5px 0px;
+    }
+}
+
+.project-causes{
+    @include box-outline( );
+    padding: 20px 15px;
+    background-color: #fff;
+    
+    p{
+        @include box-title( );
+        padding-left: 0px;
+    }
+    
+    .cause-name{
+        display: inline-block;
+        width: 100%;
+        color: $grey;
+        
+        .cause-name-text{
+            padding-top: 4px;
+            padding-left: 5px;
+        }
+    }
+    
+    .cause-name:hover{
+        color: $blue;
+        cursor: pointer;
+    }
+}
+
+.project-areas-of-impact{
+    @include box-outline( );
+	background-color: #fff;    
+    p{
+        @include box-title( );
+        padding: 20px 15px;
+
+    }
+    
+    .area-list{
+        padding: 0px 15px;
+        .country-name{
+            @include normalBlue( );
+            vertical-align: middle;
+            height: 27px;
+            margin-top: 15px;
+            padding-left: 10px;
+        }
+        
+        a:visited, a:hover, a:focus{
+	        text-decoration: none;
+	        font-weight: bold;
+        }
+    }
+    
+    #map{
+        width: 100%;
+        height: 290px;
+	}
+}
+
+.project-funded-status{
+    
+    @include box-outline( );
+    background-color: #fff;
+    
+    .amount-raised{
+        
+        margin: 10px 5px;
+        
+        .raised{
+            font-size: 24px;
+            color: $black;
+            font-weight: 700;
+        }
+        
+        .goal{
+            font-size: 18px;
+            color: $black;
+            font-weight: 300;
+        }
+    }
+    
+    .progress-wrapper{
+        width: 100%;
+        padding: 0px 5px;
+    }
+    
+    .fund-project-wrapper{
+        width: 100%;
+        padding: 10px 5px;
+        display: inline-block;
+        
+        .fund-project{
+            width: 100%;
+            height: 45px;
+            font-size: 18px;
+            @include border-radius( 4px );
+            background-color: #35db54;
+            color: #fff;
+            text-transform: uppercase;
+            border: none;
+        }
+        
+        .fund-project:hover{
+	        color: #35db54;
+	        background-color: rgba(53,219,84,0.25);
+	        cursor:pointer;
+        }
+    }
+    
+    hr{
+        margin: 10px 0px;
+    }
+    
+    .fund-actions{
+        
+        padding: 20px 15px;
+        display: inline-block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        
+        .action{
+            width: 48%;
+        }
+    }
+    
+    .incentives-title{
+        @include box-title( );
+        padding: 20px 15px;
+    }
+}
+
+.incentive{
+    width: 100%;
+    padding: 20px 15px;
+    height: auto;
+    min-height: 130px;
+    border-top: 1px solid #e5e5e5;
+    position: relative;
+    background-color: #fff;
+
+    .zero-left-overlay{
+        position:absolute;
+        z-index: 5;
+        background-color: rgba(241,241,241, .5);
+        width: 100%;
+        height: 100%;
+        display: block;
+        left: 0;
+        top: 0;
+    }
+
+    .title{
+        width: 100%;
+        font-weight: 700;
+        color: $black;
+        font-size: 18px;
+    }
+
+    .info{
+        width: 100%;
+
+        .price{
+            font-weight: 700;
+            color: #35db54;
+            font-size: 18px;
+            width: 50%;
+        }
+
+        .left{
+            font-weight: 300;
+            color: $blue;
+            font-size: 12px;
+            width: 50%;
+            text-align:right;
+            padding-top: 5px;
+        }
+
+        .no-more{
+            color: red !important;
+        }
+    }
+
+    .description{
+        color: $grey;
+        font-size: 12px;
+        display: inline-block;
+        width: 100%;
+    }
+    
+    .donation{
+                    
+        display: none;
+        height: 75px;
+
+
+        p{
+            font-weight: 300;
+            font-size:   18px;
+            color:       #fff;
+        }
+
+        .denomination{
+            text-align: center;
+            padding: 0px 5px;
+
+            input{
+                @include border-radius( 4px );
+                border: none;
+                padding: 5px;
+                color: $black;
+                font-weight: 700;
+                font-size: 18px;
+                width: 100%;
+            }
+        }
+
+        .action{
+            text-align: center;
+            padding: 0px 5px;
+
+            button{
+                border: 1px solid #fff;
+                @include border-radius( 4px );
+                width: 100%;
+                text-align: center;
+                text-transform: uppercase;
+                background-color: inherit;
+                color: #fff;
+                padding: 5px;
+                height: 35px;
+            }
+        }
+    }
+}
+
+.selected{
+    background-color: $money !important;
+    
+    .info{
+        .price{
+            color: #fff;    
+        }
+        
+        .left{
+            color: #fff;
+        }
+    }
+    
+    .description{
+        color: $black;
+    }
+}
+
+.incentive:hover{
+    @extend .selected;
+    cursor: pointer;
+}

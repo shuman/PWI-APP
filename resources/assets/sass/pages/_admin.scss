@@ -1,0 +1,468 @@
+.org-dashboard{
+	width: 100%;
+	position: relative;
+
+	.leftSide{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 290px;
+		height: auto;
+		min-height: 500px;
+	}
+
+	.dashboard-main{
+		padding-left: 270px;
+		width: 100%;
+		height: auto;
+		min-height: 500px;
+
+	}
+
+	.progress{
+		@include button( 260px, 45px, $money);
+	}
+}
+
+.admin-heading{
+	font-size: 18pt;
+	color: $black;
+}
+
+.admin-subtitle{
+	font-size: 12px;
+	color: $blue;
+}
+
+.admin-box{
+	background-color: #fff;
+	@include admin-box-outline( );
+	padding: 20px 15px 15px 15px;
+	height: auto;
+	font-size: 12pt;
+	color: $grey;
+}
+
+.admin-box-style1{
+	@extend .admin-box;
+	width:290px;
+}
+
+.admin-box-style2{
+	@extend .admin-box;
+	width:590px;
+}
+
+.admin-left-box{
+	@extend .admin-box;
+	width: 260px;
+}
+
+.non-profit-box{
+	width: 100%;
+	max-width: 1200px;
+	height: 65px;
+	@include admin-box-outline( );
+	background-color: #fff;
+	padding: 10px 15px;
+
+	img{
+		@include squareImg( 45px );
+		@include border-radius( 4px );
+	}
+
+	.name{
+		font-size: 18pt;
+		color: $black;
+		padding: 5px 15px;
+		display: inline-block;
+	}
+
+	.box-actions{
+		float: right;
+	}
+
+	.non-profit-box-action{
+		width: auto;
+		height: 45px;
+		font-weight: $demiBold;
+		color: #fff;
+		font-size: 18px;
+		border: none;
+		@include border-radius( 4px );
+		text-align: center;
+		padding: 10px;
+		float: left;
+		margin: 0px 5px;
+	}
+
+	.non-profit-box:hover{
+		cursor: pointer;
+	}
+
+	.copy-link{
+		background-color: #0581c6;
+	}
+
+	.edit-profile{
+		background-color: $blue;
+	}
+
+	.view-profile{
+		background-color: $green;
+	}
+}
+
+.non-profit-box:hover{
+		cursor: pointer;
+	}
+
+.navigation-box{
+	@extend .admin-left-box;
+	padding: 10px 15px 15px 15px;
+	height: auto;
+
+	.item, .item a{
+		padding: 10px 0px;
+		color: #e5e5e5;
+	}
+
+	.item:hover, .item a:hover{
+		cursor: pointer;
+		color: $blue;
+		text-decoration:none;
+	}
+
+	.active-item, .active-item a{
+		color: $blue;
+	}
+
+	.line{
+		border-bottom: 1px solid $borderColor;
+	}
+}
+
+.newsletter-list{
+	@extend .admin-left-box;
+
+	.heading{
+		@include admin-grey-header( );
+	}
+
+	.gear{
+		font-size: 25px;
+		color: #d5d6d7;
+		float: right;
+		margin-top: -5px;
+	}
+
+	.view-list{
+		@include button( 260px, 45px, #0581c6);
+		width: 100%;
+	}
+}
+
+.profile-score{
+	@extend .admin-left-box;
+	height: 211px;
+
+	.heading{
+		@include admin-grey-header( );
+	}
+
+	.status-bar{
+		width: 100%;
+		max-width: 260px;
+		height: 45px;
+		border: 1px solid $borderColor;
+		@include border-radius( 4px );
+
+		.status{
+			background-color: $green;
+			height: 100%;
+			/* width is determined in view */
+		}
+	}
+
+	.points-earned{
+		font-size: 18pt;
+		color: #8899a6;
+		text-align: right;
+		margin-top: 10px;
+		font-size: 12px;
+	}
+}
+
+.game-card{
+	@extend .admin-left-box;
+	height: auto;
+	min-height: 211px;
+	font-size: 12px;
+
+	.heading{
+		@include admin-grey-header( );
+	}
+
+	.points{
+		font-size: 12px;
+		font-weight: $demiBold;
+		text-transform: uppercase;
+		color: $blue;
+		padding-top: 5px;
+	}
+
+	.game-check{
+		width: 34px;
+		height: 27px;
+		color: #fff;
+		@include border-radius( 4px );
+		text-align: center;
+		padding-top: 5px;
+	}
+
+	.accomplished{
+		background-color: #d0d3d5;
+	}
+
+	.waiting{
+		background-color: $money;
+	}
+}
+
+.dashboard-reporting{
+	@extend .admin-left-box;
+	height: auto;
+	min-height: 211px;
+
+	.heading{
+		@include admin-grey-header( );	
+	}
+
+	.subtitle{
+		font-size: 12px;
+		color: $grey;
+	}
+
+	.key{
+		font-size: 12px;
+		color: $grey;
+	}
+
+	.value{
+		font-size: 12px;
+		font-weight: $demiBold;
+		color: $blue;
+	}
+}
+
+
+
+.quick-view{
+	@extend .admin-box;
+	width: 100%;
+	max-width: 890px;
+	border: 1px solid #e5e5e5;
+
+	.heading{
+		@include admin-grey-header( );	
+	}
+
+	.stat-number{
+		font-size: 30px;
+		font-weight: $demiBold;
+		color: $blue;
+		text-align: center;
+	}
+}
+
+.pwi-services{
+	@extend .admin-box-style1;
+	width: 100%;
+	.fund-container{
+		img{
+			max-height: 180px;
+		}
+	}
+
+	.fund-container-hover{
+		display: none;
+		width: 260px;
+		height: 237px;
+
+		.icon{
+			font-size: 62px;
+		}
+
+		.subtitle{
+			font-size: 12pt;
+			color: #fff;
+		}
+	}
+}
+
+.admin-featured-profile{
+
+	@extend .admin-box-style1;
+
+	.heading{
+		@include admin-grey-header( );	
+	}
+
+	img{
+		width: 260px;
+		height: 140px;
+	}
+
+	.views{
+		font-size: 18px;
+		font-weight: $demiBold;
+		color: $darkGrey;
+	}
+
+	.view-button{
+		width: 70px;
+		height: 25px;
+		font-size: 12pt;
+		color: $darkGrey;
+	}
+}
+
+.pwi-bottom-content{
+	@extend .admin-box-style2;
+
+	.project{
+		font-weight: 300;
+		color: $blue;
+		text-transform: uppercase;
+	}
+
+	.world{
+		font-weight: 700;
+		color: $blue;
+		text-transform: uppercase;
+	}
+
+	.impact{
+		font-weight: bold;
+		color: $blue;
+		text-transform: uppercase;
+	}
+}
+
+.admin-dashboard-content{
+	@extend .admin-box-style2;
+
+	.item{
+		img{
+			@include squareImg( 72px );
+		}
+
+		.title{
+			@include admin-grey-header( );
+		}
+
+		.days-left{
+			font-size: 12pt;
+			color: $blue;
+		}
+
+		.progress{
+			@include button( 470px, 45px, $money);
+		}
+	}
+}
+
+.admin-dashboard-news{
+	@extend .admin-box-style2;
+
+	.heading{
+		@extend .admin-heading;	
+	}
+
+	.article{
+		min-height: 75px;
+
+		img{
+			@include squareImg( 72px );
+			margin-right: 5px;
+		}
+
+		.title{
+			@include admin-grey-header( );
+		}
+
+		.time-posted{
+			color: $blue;
+			font-size: 10px;
+		}
+
+		.source{
+			color: #e5e5e5;
+			font-size: 10px;
+		}
+
+		.content{
+			font-size: 12px;
+		}
+	}
+}
+
+.admin-dashboard-news-country{
+	@extend .admin-box-style1;
+	width: 260px;
+
+	.heading{
+		@extend .admin-heading;
+	}
+
+	.article{
+
+		.title{
+			@include admin-grey-header( );
+		}
+
+		.time-posted{
+			color: $blue;
+			font-size: 10px;
+		}
+
+		.source{
+			color: #e5e5e5;
+			font-size: 10px;
+		}
+
+		.content{
+			font-size: 12px;
+		}
+	}
+}
+
+
+.rightSide{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 260px;
+	height: auto;
+}
+
+.modal-backdrop{
+	background-color: #fff !important;
+}
+
+.modal-backdrop.in{
+	opacity: .95;
+}
+
+.modal{
+	.success-msg{
+		background-color: $money;
+		opacity: .9;
+		color: #fff;
+		display: none;
+		@include border-radius( 4px );
+		text-align: center;
+		padding: 5px 0px;
+	}
+}
+

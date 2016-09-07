@@ -1,0 +1,1 @@
+{"version":3,"sources":["mobileAdjust.js"],"names":[],"mappings":"AAAA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA","file":"mobileAdjust.js","sourcesContent":["$(document).on(\"pageload\", function( ){\n\n\talert('hi');\n\t\n\tvar hpHeight = $(\".indexWrapper\").height( );\n\n\tconsole.log( hpHeight );\n\n});"],"sourceRoot":"/source/"}

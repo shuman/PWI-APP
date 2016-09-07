@@ -1,0 +1,179 @@
+@media only screen and (max-width: 768px ){
+
+	/* Pulldown Media Queries for max 768 */
+
+	.pull-down-about{
+
+		.content{
+			width: auto;
+		}
+	}
+	
+	/* Login Media Queries for max 768 */
+	
+	.container{
+		// padding-bottom: 125px;
+	}
+	
+	.index-navbar .navbar-form{
+		border: none;
+	}
+	
+	.navbar-collapse.in{
+		background-color: #fff;
+	}
+	
+	.container-fluid { 
+		
+		.navbar-header{
+			width: 100%;
+		}
+		
+		.navbar-collapse{
+			margin-right: -16px;
+			margin-left: -16px;
+			margin-top: -1px;
+		}
+	}
+	
+	.navbar-collapse.collapse{
+		display: none !important;
+	}
+	
+	.navbar-toggle{
+		display: block;
+	}
+	
+	.whatis-container{
+
+		width: 100%;
+		text-align: center;
+		
+		
+		input[type='text']{
+			@include border-radius( 4px );
+			text-align: center;
+		}
+		
+		button{
+			width: 100%;
+		}
+	}
+	
+	.index-navbar .home-nav-search input[type='text']{
+		width: 100%;
+	}
+	
+	.index-navbar .navbar-right .navbar-actions .user-data a{
+		display: block;
+	}
+	
+	.home-nav-search button{
+		display: none;
+	}
+	
+	
+	.whatis{
+		padding: 0px;
+		padding-left: 5px;
+		margin: 0px;
+		text-align: left;
+		@include border-radius( 0px );
+	}
+	
+	.mobile-search-button{
+		display: block;
+	}
+	
+	.mobile-menu-item{
+		width: 100
+	}
+	
+	.normal-footer{
+		display:none;
+	}
+	
+	.mobile-footer{
+		display: block;
+		
+		div{
+			text-align: center;
+		}
+		
+		.footer-links{
+			border-bottom: 1px solid #eee;
+			
+			a{
+				padding: 0px 15px;
+				font-size: 12px;
+			}
+		}
+		
+		.social-links{
+			border-bottom: 1px solid #eee;
+			
+			a{
+				padding: 0px 25px;
+				i:before{
+					font-size: 2em;
+				}
+			}
+			
+			.pwi-social-facebook{
+				color: #3c5995;
+			}
+			
+			.pwi-social-twitter{
+				color: #33aef4;	
+			}
+			
+			.pwi-social-instagram{
+				color: #6b5446;
+			}
+			
+			.pwi-social-pinterest{
+				color: #f1363a;
+			}
+		}
+		
+		.pwi-text{
+			span{
+				font-size: 14px;
+			}
+			
+			.project{
+	            @include pwi( 100 );
+	        }
+	
+	        .world{
+	            @include pwi( 400 );
+	        }
+	
+	        .impact{
+	            @include pwi( 900 );
+	        }   
+		}
+	}
+	
+	.product-filter{
+		.filter-items{
+			ul{
+				padding-left:10px;
+				
+				li{
+					font-size: 12px;
+				}
+			}
+		}
+	}
+	
+	.top-button{
+		button, div{
+			@include border-radius( 0px );
+		}
+	}
+	
+	.org-header{
+		@include border-radius( 0px );
+	}
+}

@@ -1,0 +1,131 @@
+.pull-down-about{
+    background: #fff;
+    margin-top: 0px;
+    padding: 70px 140px;
+    position: absolute;
+    top: -702px;
+    height: 702px;
+    z-index:2;
+    width: 100%;
+    
+    .exit-pull-down{
+        right: 50px;
+        top: 30px;
+        width: 10px;
+        height: 10px;
+        position:absolute;
+    }
+    
+    .exit-pull-down:hover{
+        cursor: pointer;
+    }
+    
+    hr{
+	    margin-top: 50px;
+	    margin-bottom: 50px;
+    }
+    
+    .title{
+        font-size: 48px;
+        color: $blue;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-align: center;             
+    }
+    
+    .content{
+        font-size: 18px;
+        font-weight: 300;
+        color: #292f33;
+        padding: 0px;
+        width: 920px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    #pulldown-cause-panel{
+        .section-icon{
+            color: $blue;
+        }
+    }
+
+    #pulldown-country-panel{
+        .section-icon{
+            color: #0581C6;
+        }
+    }
+
+    #pulldown-org-panel{
+        .section-icon{
+            color: #F1657F;
+        }
+    }
+    
+    .panel{
+        
+        box-shadow: none;
+
+        
+        .section-icon{
+            width: 150px;
+            height: 150px;
+            font-size: 150px;
+            margin: 10px auto 20px auto;
+        }
+        
+        .title{
+            text-align: center;
+            color: #292f33;
+            font-size: 24px;
+            margin: 10px 0px;
+            white-space: nowrap;
+            text-transform: none;
+        }
+        
+        .content{
+            padding: 0px;
+            color: $grey;
+            font-size: 18px;
+            height: auto;
+            min-height: 50px;
+            padding: 0px 30px;
+            width: 100%;
+            display: block;
+            text-align: center;
+        }
+        
+        .searchby{
+            margin-left: auto;
+            margin-right: auto;
+            color: #fff;
+            border: none;
+            padding: 2px 20px;
+            @include border-radius( 5px );
+            font-size: 18px;
+            display: block;
+            min-width: 260px;
+        }
+        
+        .cause{
+            background-color: $blue;
+            height: 45px;
+        }
+        
+        .country{
+            background-color: #0581c6;
+            height: 45px;
+        }
+        
+        .learnmore{
+            background-color: #f1657f;
+            height: 45px;
+        }
+    }
+}
+
+@media only screen and ( max-width: 1110px ){
+    .pull-down-about{
+        padding: 70px 100px;
+        
+    }   
+}

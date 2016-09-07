@@ -1,0 +1,226 @@
+@media only screen and (max-width: 767px ){
+
+	/* General Styles */
+
+		.pull-down-about{
+			padding: 0px;
+			top: 	-1370px;
+    		height: 1370px;
+
+    		.title{
+    			font-size: 24px;
+    			margin-top: 50px;
+    			text-align: left;
+    			padding: 0 20px;
+    		}
+
+    		.content{
+    			padding: 0 20px;
+    			font-size: 14px;
+    		}
+
+    		.row{
+    			margin: 0;
+    		}
+
+    		hr{
+    			margin-bottom: 0px;
+    		}
+
+    		.panel{
+    			width: 100%;
+    			margin-bottom: 0px;
+    			@include border-radius( 0px );
+
+    			.title{
+    				font-size: 24px;
+    			}
+
+    			.content{
+    				font-size: 18px;
+    				color: #fff;
+    				width: 95%;
+    				margin: 0px auto;
+    			}
+
+    			.searchby{
+    				width: 95%;
+    				margin: 0px auto;
+    				background-color: #fff;
+    				font-size: 18px;
+    			}
+    		}
+
+    		#pulldown-cause-panel{
+    			background-color: $blue;
+    			color: #fff;
+
+    			.section-icon{
+    				color: #fff;
+    			}
+
+    			.title{
+    				color: #0581C6;
+    				font-size: 24px;
+    			}
+
+    			button{
+    				color: $blue;
+    			}
+    		}
+
+			#pulldown-country-panel{
+
+				background-color: #0581C6;
+
+				.section-icon{
+    				color: #fff;
+    			}
+				
+				.title{
+					color: #99D6F9;
+				}
+
+				button{
+					color: #0581C6;
+				}
+			}
+
+			#pulldown-org-panel{
+				background-color: $red;
+
+				.section-icon{
+					color: #fff;
+				}
+
+				.title{
+					color: #F9B2C0;
+				}
+
+				button{
+					color: $red;
+				}
+			}
+		}
+
+	/* Modals */
+
+		.modal{
+			position:absolute;
+		}
+
+		#mobile-country-list{
+			.panel{
+				text-align: left;
+
+				h4{
+					a{
+						font-size: 18px;
+						text-decoration: none;
+						color: #292F33;
+					}
+				}
+
+				.panel-body{
+					@include columns( 3 );
+					width: 90%;
+				}
+			}
+		}
+
+		.cause-container{
+
+			vertical-align: top !important;
+
+			a{
+				top: 30% !important;
+			}
+
+			$d: 0;
+	        $increment: 10;
+	        $cnt: 12;
+	        
+	        @while $d <= 360 {
+	            @if $d == 0{
+	                .deg#{$d} { transform: translate(10em) !important; }
+	            } @else if $d == 180{
+	                .deg#{$d} { transform: translate(-10em) !important; }
+	            } @else if $d == 270{
+		            .deg#{$d} { transform: rotate( #{$d}deg) translate( 5em ) rotate( -#{$d}deg) !important; font-size: 32px; font-weight: 700; text-align: center;}
+	            } @else {
+	                .deg#{$d} { transform: rotate( #{$d}deg) translate( 10em ) rotate( -#{$d}deg) !important;}
+	            }
+	            
+	            $d: $d + $increment;
+	        }
+		}
+
+		.exit-cause-modal{
+			right: 30px;
+			top: 50px;
+		}
+
+	/* Home Page */
+
+		.home-page-bg{
+			top: 65px;
+
+			.home-page-content-wrapper{
+				.home-page-content{
+					padding-top: 65px;
+					vertical-align: top;
+
+					.home-page-title{
+						font-size: 22px;
+					}
+
+					.home-page-sub-title{
+						width: 95%;
+						font-size: 22px;
+					}
+
+					.home-nav-search button{
+						display: inline-block;
+					}
+
+					.home-page-button{
+						width: 100%;
+						margin: 5px 0px;
+						@include border-radius( 0px );
+					}
+				}
+			}
+		}
+
+	/* Organization Index Page */
+
+		.org-module-list{
+
+			.org-module{
+				
+				.org-module-name{
+					max-width: 220px;
+				}
+			}
+		}
+
+		.impacts-causes{
+			max-width: 220px;
+		}
+
+
+	/* Footer */
+
+	.mobile-footer{
+		.whatis{
+			background-color: $blue;
+			color: #fff;
+			padding-top: 5px;
+			text-align: center;
+			width: 100%;
+			@include border-radius( 0px );
+			font-size: 18px;
+		}
+	}
+
+}

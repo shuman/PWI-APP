@@ -1,0 +1,860 @@
+.org-header{
+    @include box-outline( );
+    height: 189px;
+    position: relative;
+    background-color:#fff;
+    
+    .coverphoto{
+        width: 100%;
+        height: 125px;
+    }
+    
+    .coverphotoPH{
+	    width: 100%;
+	    height: 125px;
+    }
+    
+    .logo{
+        position: absolute;
+        left: 15px;
+        top:  75px;
+        @include squareImg( 100px );
+        @include border-radius( 4px );
+        border: 2px solid #fff;
+        box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+    }
+
+    .fileUpload{
+        
+        color: #fff;
+        width: 35px;
+        height: 35px;
+        position: relative;
+        
+        .upload-icon-cover{
+            right: 20px;
+            top: -5px;
+            font-size: 24px;
+        }
+
+        .upload-icon-profile{
+            font-size: 24px;
+        }
+
+        input[type=file]{
+            position: absolute;
+            top: -99999999px;
+        }
+
+        .glyphicon{
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: lightgrey;
+        }
+    }
+    
+    .header-content{
+        margin-left: 130px;
+        
+        .org-name{
+            font-size: 18px;
+            color: #000;
+            font-weight: bold;
+        }
+        
+        .org-social-media{
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            
+            .social-icon-facebook {
+                float: left;
+                a{
+                    color: #3a5897;
+                    text-decoration: none;
+                    
+                    i{
+                        font-size: 2em;
+                    }
+                }
+            }
+            
+            .social-icon-twitter{  
+                float: left;
+                a{
+                    color: #33aef4;
+                    text-decoration: none;
+                    
+                    i{
+                        font-size: 2em;
+                    }
+                }
+            }
+            
+            .social-icon-instagram{
+                float: left;
+                a{
+                    color: #6b5446;
+                    text-decoration: none;
+                    
+                    i{
+                        font-size: 2em;
+                    }
+                }
+            }
+            
+            .social-icon-pinterest{
+                float: left;
+                a{
+                    color: #f43333;
+                    text-decoration: none;
+                    
+                    i{
+                        font-size: 2em;
+                    }
+                }
+                
+            }
+        }
+    }
+}
+
+.upload-dialog{
+    position: absolute; 
+    top: 75px; 
+    left: 15px; 
+    z-index:9999;
+    display: none;
+}
+
+.modal-update-dialog{
+    @extend .upload-dialog;
+    position: relative;
+}
+
+.about-us{
+    @include box-outline( );
+    position: relative;
+    background-color: #fff;
+    padding: 20px 15px;
+    
+    .title{
+        font-size: 18px;
+        font-weight: 300;
+        color: #000;
+    }
+    
+    .content{
+        font-size: 12px;
+        color: #8899a6;
+    }
+}
+
+.org-causes{
+    @include box-outline( );
+    position: relative;
+    background-color: #fff;
+    
+    .cause-list{
+
+        p{
+            font-size: 18px;
+            font-weight: 300;
+            margin-top: 10px;
+            padding-left: 10px;
+            color: black;
+        }
+
+        .cause-name{
+            height: 40px;
+            padding-left: 10px;
+            color: $grey;
+            .cause-name-text{
+                padding-left: 15px;
+                padding-top: 5px;
+                color: $grey;
+            }
+        }
+
+        .cause-name.active{
+            color: #0581c6;
+            .cause-name-text{
+	            color: #0581c6;
+            }
+        }
+
+        .cause-name:hover{
+            cursor: pointer;
+        }
+    }
+
+    .cause-description{
+        padding: 10px;
+        font-size: 12px;
+        color: #8899a6;
+        border-left: 1px solid #f1f1f1;
+
+        .cause-description-header{
+           font-weight: 700;
+            margin: 10px 0px;
+        }
+    }
+}
+
+.org-areas-of-impact{
+    @include box-outline( );
+    position: relative;
+    background-color: #fff;
+    p{
+	    font-size: 18px;
+        font-weight: 300;
+        margin-top: 10px;
+        padding-left: 10px;
+        color: black;
+    }
+    
+    .area-list{
+        padding: 0px 15px;
+        .country-name{
+            @include normalBlue( );
+            vertical-align: middle;
+            height: 27px;
+            margin-top: 15px;
+            padding-left: 5px;
+            
+            a, a:visited, a:hover, a:focus{
+	            text-decoration: none;
+	            font-weight: bold;
+            }
+        }
+    }
+    
+    #map{
+        width: 100%;
+        height: 290px;
+    }
+}
+
+.photo-tiles{
+    @include box-outline( );
+    position: relative;
+    background-color: #fff;
+    p{
+        @include box-title( );
+        padding: 20px 15px;
+    }
+    
+    img{
+        @include squareImg( 95px );
+        padding: 0;
+        margin: 1px;
+    }
+}
+
+.video-tiles{
+    @include box-outline( );
+    position: relative;
+    background-color: #fff;
+    p{
+        @include box-title( );
+        padding: 20px 15px;
+    }
+    
+    img{
+        @include squareImg( 95px );
+        padding: 0;
+        margin: 1px;
+        
+    }
+}
+
+.contact-info{
+   @include box-outline( );
+
+    background-color: #fff;
+    
+    .org-actions{
+        
+        padding: 10px 0px;
+        display: inline-block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        
+        .action{
+            width: 49%;
+        }
+    }
+
+    p{
+        @include box-title( );
+        padding-left: 0px;
+    }
+    
+    table{
+        td{
+            font-size: 12px;
+            color: #8899a6; 
+            i{
+                font-weight: 700;   
+            }
+            a{
+                color: $blue;
+            }
+        }
+    }
+    
+    .revenue{
+        color: $grey;
+        font-size: 12px;
+        font-weight: 300;
+    }
+}
+
+.reviews-container{
+    @include box-outline( );
+    background-color: #fff;
+    padding: 20px 15px;
+    
+    p{
+        @include box-title( );
+        padding-left: 0px;
+        
+        a, a:hover, a:visited, a:focus{
+            color: $blue;
+            font-size: 12px;
+            text-decoration: none;
+        }
+    }
+    
+    .review{
+        .name{
+            float: left;
+            color: $grey;
+            font-size: 12px;
+            font-weight: bold;
+            margin-top: 6px;
+        }
+        
+        .content{
+            color: $grey;
+            font-weight: 300;
+            font-size: 12px;
+            padding: 5px 0px;
+        }
+    }
+}
+
+/**  General Info Modal **/
+
+#generalInfoModal{
+
+    color: $black;
+
+    textarea{
+        transition: none;
+        width: 100%;
+    }
+
+    .input-group{
+        width: 100%;
+    }
+}
+
+#orgCauseModal{
+
+    .availableCauseList{
+        margin: 0px 30px;
+
+        label{
+            min-width: 145px;
+            max-width: 145px;
+        }
+    }
+
+    .subCauseWrapper{
+        
+        .availableSubCauseList{
+            margin: 0px 30px;
+
+            .sub-cause-item{
+                display:none;
+            }
+        }    
+    }
+
+    .currentCauseList{
+        color: $red;
+
+        .cause-name{
+            font-size: 18px;
+        }
+
+        .sub-cause-list{
+            font-size: 12px;
+            color: #e5e5e5;
+        }
+
+        .cause-text{
+            display: none;
+        }
+    }
+
+    .org-cause:hover{
+        cursor: pointer;
+    }
+
+    #add-country{
+        color: #fff !important;
+        background-color: #5cb85c !important;
+        border-color: #4cae4c !important;
+    }
+
+    #add-country-input-group{
+        position: relative;
+    }
+
+    .country-search-container{
+        position: absolute;
+        min-height: 100px; 
+        max-height: 300px; 
+        padding: 10px 5px;
+        background-color: #fff;
+        border: 1px solid #e5e5e5;
+        left: 0;
+        z-index: 10;
+        @include border-radius( 4px );
+
+        .country-selection{
+            padding: 0px;
+            color: $black;
+            background-color: #fff;
+            @include border-radius( 0px );
+        }
+
+        .country-selection:hover{
+            padding: 5px;
+            color: $black;
+            background-color: $blue;
+            @include border-radius( 4px );
+            cursor: pointer;
+        }
+    }
+
+    .country-list{
+        width: 100%;
+        height: auto;
+        min-height: 50px;
+        padding: 10px;
+        display: none;
+
+    }
+
+    input[name=country-text]{
+        background-size: contain;
+    }
+
+    .btn{
+        .badge{
+            left: 5px;
+        }
+    }
+
+    .country-pill{
+        margin: 5px;
+        float: left;
+    }
+
+    .cause-country-list{
+        font-style: italic;
+        font-size:10px;
+        color: #e5e5e5;
+    }
+}
+
+#mediaModal{
+    .modal-body{
+        padding: 0px;
+
+        p.heading{
+            font-size: 18px;
+        }
+
+        .nav-tabs{
+            background-color: #e5e5e5;
+        }
+
+        .nav{
+            li{
+                background-color: #e5e5e5;
+                @include border-radius( 0px );
+            }
+        }
+
+        .tab-content{
+            padding: 20px 10px;
+
+            .tab-pane{
+                @include columns( 0 );
+            }
+        }
+    }
+
+    .box{
+        height: 113px;
+        width: 113px;
+        border: 1px solid #e5e5e5;
+        @include border-radius( 4px );
+        display: table-cell;
+        vertical-align: middle;
+        margin: 10px;
+        float: left;
+
+        .overlay{
+            width: 100%;
+            height: 100%;
+            background-color: rgba( 0,0,0,.7);
+            display: none;
+            padding-top: 35px;
+            padding-left: 25px;
+        }
+    }
+
+    .box:hover{
+        cursor: pointer;
+    }
+
+    .droppable-box{
+        
+        text-align: center;
+        font-size: 12px;
+        padding: 35px 5px 0px 5px;
+        color: $grey;
+        font-weight: 400;
+    }
+
+    .droppable-box:hover{
+        font-weight: bold;
+        border: 2px dashed #e5e5e5;
+        cursor: pointer;
+    }
+
+    .photo_list{
+
+        display: inline-block;
+        .upload{
+            position: absolute;
+            top: -99999999px;
+        }
+    }
+}
+
+.admin-crowdfunding-modal{
+
+    .modal-body{
+        padding: 0px;
+
+        p.heading{
+            font-size: 18px;
+        }
+
+        .nav-tabs{
+            background-color: #e5e5e5;
+        }
+
+        .nav{
+            li{
+                background-color: #e5e5e5;
+                @include border-radius( 0px );
+            }
+        }
+
+        .tab-content{
+            padding: 20px 10px;
+
+            .tab-pane{
+                @include columns( 0 );
+            }
+        }
+    }
+
+    input[type=file]{
+        position: absolute;
+        top: -99999999px;
+    }
+
+    label{
+        font-size: 18px;
+        font-weight: 400;
+    }
+
+    p{
+        font-size: 18px;
+        font-weight: 400;
+
+        small{
+            color: $grey;
+            font-size: 12px;
+            font-weight: 400;
+        }
+    }
+
+    .project-org-cause{
+        margin: 0px 0px;
+        padding: 10px 0px;
+
+        div.row{
+            height: 45px;
+            width: 95%;
+            margin: 0px auto;
+            @include border-radius( 4px );
+            
+            div{
+                padding-top: 7px;
+            }
+        }
+
+        div.row:hover{
+            background-color: rgba(51,174,244,.7);
+            cursor: pointer;
+        }
+    }
+
+    .project_thumbnail_holder{
+        width: 114px; 
+        height: 114px; 
+        border: 1px solid #e5e5e5; 
+        border-radius: 4px; 
+        margin: 10px auto;
+        display: none;
+    }
+
+    .project_header_holder{
+        width: 350px; 
+        height: 110px; 
+        border: 1px solid #e5e5e5; 
+        border-radius: 4px; 
+        margin: 10px 0px;
+        display:none;
+    }
+
+    .chosen_project_cause{
+        background-color: rgba(51,174,244,.7);
+    }
+
+    .add-incentive, .add-update, .clear-incentive, .clear-update{
+        width: 100%;
+        text-align: center;
+    }
+
+    .viewVideo{
+        font-size: 12px;
+    }
+
+    .viewVideo:hover{
+        text-decoration: none;
+    }
+
+    /** Start Crowdfunding list styles **/
+
+    .crowdfunding-list{
+
+        li{
+            height: 100%;
+            min-height: 65px;
+            @include border-radius( 0px );
+            .crowdfunding-list-project-image{
+                float: left;
+                height: 32px;
+                width: 32px;
+                margin: 5px;
+            }
+        }
+    }
+
+    .list-group{
+        .badge:hover{
+            cursor: pointer;
+        }
+    }
+}
+
+#productAdminModal{
+    .modal-body{
+        padding: 0px;
+
+        p.heading{
+            font-size: 18px;
+        }
+
+        .nav-tabs{
+            background-color: #e5e5e5;
+        }
+
+        .nav{
+            li{
+                background-color: #e5e5e5;
+                @include border-radius( 0px );
+                width: 33.3%;
+                text-align: center;
+            }
+        }
+
+        .tab-content{
+            padding: 20px 10px;
+
+            .tab-pane{
+                @include columns( 0 );
+            }
+        }
+
+        #currentProductsTab{
+            .badge:hover{
+                cursor: pointer;
+            }
+        }
+    }
+
+    .breadcrumb{
+        li{
+            a{
+                font-size: 14px;
+            }
+        }
+    }
+
+    input[type=file]{
+        position: absolute;
+        top: -99999999px;
+    }
+
+    .product_photo_list{
+        .product_photo_item{
+            padding: 10px 5px;
+            border: 1px solid $grey;
+            @include border-radius( 4px );
+
+            span{
+                color:red;
+            }
+        }
+    }
+
+    h3{
+        small{
+		    font-size: 50%;
+	    }
+    }
+    
+    .new-product-info{
+	    min-height: 300px;
+	    height: auto;
+    }
+    
+    .new-product-modifiers{
+	    display: none;
+	    min-height: 300px;
+	    height: auto;
+
+        .new-product-modifier-list{
+            
+            .modifier{
+                width: 100%;
+            }
+        }
+
+        .add-modifier-item{
+            height: 45px;
+            border-top-left-radius: 0px;
+            border-bottom-left-radius: 0px;
+        }
+
+        .modifier-msg{
+            display:none;
+            text-align: center;
+        }
+
+        .modifier-item{
+            @include border-radius( 4px );
+            background-color: $blue;
+            color: #fff;
+            padding: 10px 10px;
+            margin: 5px;
+        }
+
+        .modifier-item:hover{
+            cursor: pointer;
+        }
+    }
+    
+    .new-product-inventory{
+	    display: none;
+	    min-height: 300px;
+	    height: auto;
+
+        .modifier-inventory-row{
+            margin: 5px 0px;
+        }
+
+        .modifier-inventory-row:nth-child(even){
+            background-color: #e5e5e5;
+        }
+    }
+    
+    .new-product-shipping{
+	    display: none;
+	    min-height: 300px;
+	    height: auto;
+
+        .modifier-item-shipping-info{
+            display: none;
+            padding: 10px;
+        } 
+
+        .modifier-shipping-items{
+            margin: 10px 0px;
+        }
+
+        .modifier-shipping-row{
+            margin: 0;
+            padding: 10px 0px;
+            border: 1px solid #e5e5e5;
+            @include border-radius ( 4px );
+            background-color: #eee;
+        }
+    }
+    
+    .new-product-causes-impacts{
+	    display: none;
+	    min-height: 300px;
+	    height: auto;
+
+        .project-org-cause{
+            color: #000;
+        }
+
+        .project-org-cause:hover{
+            cursor: pointer;
+        }
+
+        .chosen_project_cause{
+            background-color: rgba(51,174,244,.7);
+            color: #fff;
+            margin: 0px -10px;
+            @include border-radius( 4px );
+        }
+    }
+}
+
+.jqte{
+    margin: 0px !important;
+    resize: none;
+    outline: none;
+}
+
+.jqteOverRide{
+    margin: 0px !important;
+    resize: none;
+    outline: none;
+}

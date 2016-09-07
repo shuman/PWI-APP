@@ -1,0 +1,312 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "pwi-font";
+  src:url("fonts/pwi-font.eot");
+  src:url("fonts/pwi-font.eot?#iefix") format("embedded-opentype"),
+    url("fonts/pwi-font.woff") format("woff"),
+    url("fonts/pwi-font.ttf") format("truetype"),
+    url("fonts/pwi-font.svg#pwi-font") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "pwi-font" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="pwi-"]:before,
+[class*=" pwi-"]:before {
+  font-family: "pwi-font" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.pwi-icon-pwi-logo:before {
+  content: "\61";
+}
+.pwi-icon-cause:before {
+  content: "\62";
+}
+.pwi-icon-cause-solid:before {
+  content: "\63";
+}
+.pwi-icon-country:before {
+  content: "\64";
+}
+.pwi-icon-country-solid:before {
+  content: "\65";
+}
+.pwi-icon-crowdfunding:before {
+  content: "\66";
+}
+.pwi-icon-crowdfunding-solid:before {
+  content: "\67";
+}
+.pwi-icon-organization:before {
+  content: "\68";
+}
+.pwi-icon-organization-solid:before {
+  content: "\69";
+}
+.pwi-icon-products:before {
+  content: "\6a";
+}
+.pwi-icon-products-solid:before {
+  content: "\6b";
+}
+.pwi-cause-children:before {
+  content: "\72";
+}
+.pwi-cause-children-solid:before {
+  content: "\73";
+}
+.pwi-cause-children-stroke:before {
+  content: "\74";
+}
+.pwi-cause-economy:before {
+  content: "\75";
+}
+.pwi-cause-economy-solid:before {
+  content: "\76";
+}
+.pwi-cause-economy-stroke:before {
+  content: "\77";
+}
+.pwi-cause-education:before {
+  content: "\78";
+}
+.pwi-cause-education-solid:before {
+  content: "\79";
+}
+.pwi-cause-education-stroke:before {
+  content: "\7a";
+}
+.pwi-cause-environment:before {
+  content: "\41";
+}
+.pwi-cause-environment-solid:before {
+  content: "\42";
+}
+.pwi-cause-environment-stroke:before {
+  content: "\43";
+}
+.pwi-cause-family:before {
+  content: "\44";
+}
+.pwi-cause-family-solid:before {
+  content: "\45";
+}
+.pwi-cause-family-stroke:before {
+  content: "\46";
+}
+.pwi-cause-government:before {
+  content: "\47";
+}
+.pwi-cause-government-solid:before {
+  content: "\48";
+}
+.pwi-cause-government-stroke:before {
+  content: "\49";
+}
+.pwi-cause-health:before {
+  content: "\4a";
+}
+.pwi-cause-health-solid:before {
+  content: "\4b";
+}
+.pwi-cause-health-stroke:before {
+  content: "\4c";
+}
+.pwi-cause-humanrights:before {
+  content: "\4d";
+}
+.pwi-cause-humanrights-solid:before {
+  content: "\4e";
+}
+.pwi-cause-humanrights-stroke:before {
+  content: "\4f";
+}
+.pwi-cause-poverty:before {
+  content: "\50";
+}
+.pwi-cause-poverty-solid:before {
+  content: "\51";
+}
+.pwi-cause-poverty-stroke:before {
+  content: "\52";
+}
+.pwi-cause-religion:before {
+  content: "\53";
+}
+.pwi-cause-religion-solid:before {
+  content: "\54";
+}
+.pwi-cause-religion-stroke:before {
+  content: "\55";
+}
+.pwi-cause-water:before {
+  content: "\56";
+}
+.pwi-cause-water-solid:before {
+  content: "\57";
+}
+.pwi-cause-water-stroke:before {
+  content: "\58";
+}
+.pwi-icon-address:before {
+  content: "\59";
+}
+.pwi-icon-browse:before {
+  content: "\5a";
+}
+.pwi-icon-cart:before {
+  content: "\30";
+}
+.pwi-icon-close:before {
+  content: "\31";
+}
+.pwi-icon-donate:before {
+  content: "\32";
+}
+.pwi-icon-email:before {
+  content: "\33";
+}
+.pwi-icon-heart:before {
+  content: "\34";
+}
+.pwi-icon-individual:before {
+  content: "\35";
+}
+.pwi-icon-join:before {
+  content: "\36";
+}
+.pwi-icon-login:before {
+  content: "\37";
+}
+.pwi-icon-logout:before {
+  content: "\38";
+}
+.pwi-icon-newsletter:before {
+  content: "\39";
+}
+.pwi-icon-organization-1:before {
+  content: "\21";
+}
+.pwi-icon-phone:before {
+  content: "\22";
+}
+.pwi-icon-play:before {
+  content: "\23";
+}
+.pwi-icon-search:before {
+  content: "\24";
+}
+.pwi-icon-share:before {
+  content: "\25";
+}
+.pwi-icon-star:before {
+  content: "\26";
+}
+.pwi-icon-website:before {
+  content: "\27";
+}
+.pwi-social-facebook:before {
+  content: "\28";
+}
+.pwi-social-facebook-solid:before {
+  content: "\29";
+}
+.pwi-social-google:before {
+  content: "\2a";
+}
+.pwi-social-google-solid:before {
+  content: "\2b";
+}
+.pwi-social-instagram:before {
+  content: "\2c";
+}
+.pwi-social-instagram-solid:before {
+  content: "\2d";
+}
+.pwi-social-pinterest:before {
+  content: "\2e";
+}
+.pwi-social-pinterest-solid:before {
+  content: "\2f";
+}
+.pwi-social-twitter:before {
+  content: "\3a";
+}
+.pwi-social-twitter-solid:before {
+  content: "\3b";
+}
+.pwi-icon-dashboard-causes:before {
+  content: "\3c";
+}
+.pwi-icon-dashboard-crowdfunding:before {
+  content: "\3d";
+}
+.pwi-icon-dashboard-events:before {
+  content: "\3e";
+}
+.pwi-icon-dashboard-general:before {
+  content: "\3f";
+}
+.pwi-icon-dashboard-payment:before {
+  content: "\40";
+}
+.pwi-icon-dashboard-photo:before {
+  content: "\5b";
+}
+.pwi-icon-dashboard-products:before {
+  content: "\5d";
+}
+.pwi-icon-dashboard-reports:before {
+  content: "\5e";
+}
+.pwi-icon-dashboard-social:before {
+  content: "\5f";
+}
+.pwi-icon-dashboard-updates:before {
+  content: "\7b";
+}
+.pwi-icon-dashboard-venderlist:before {
+  content: "\7c";
+}
+.pwi-icon-dashboard-volunteering:before {
+  content: "\7d";
+}
+.pwi-icon-dashboard-subscription:before {
+  content: "\60";
+}
+.pwi-cause-animals:before {
+  content: "\6c";
+}
+.pwi-cause-animals-solid:before {
+  content: "\6d";
+}
+.pwi-cause-animals-stroke:before {
+  content: "\6e";
+}
+.pwi-icon-interpunct:before {
+  content: "\6f";
+}
+
+/*# sourceMappingURL=pwi-font.css.map */

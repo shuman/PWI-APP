@@ -1,0 +1,86 @@
+.login{
+	width: 100%;
+	background-color: #fff;
+
+	.text{
+		padding: 11px 20px;
+	}
+
+	.forget{
+		color: $blue;
+		font-size: 14px;
+	}
+
+	.create{
+		color: $red;
+		font-size: 14px;
+	}
+
+	.header{
+		color: black;
+		font-size: 18px;
+		font-weight: 700;
+	}
+
+	.inputContainer{
+		width: 100%;
+		
+		.ui-input-text{
+			margin: 10px 10px !important;
+		}
+
+		input{
+			height: 45px;
+		}
+
+		button{
+			width: 95%;
+			margin: 0px auto;
+			color: #fff;
+			background-color: $blue;
+			text-transform: uppercase;
+			text-shadow: 0 0 0;
+		}
+	}
+
+	.buttons{
+		width: 100%;
+		height: 65px;
+		
+		.button-login{
+			width: 33.3%;
+			color: #fff;
+			float: left;
+			height: 35px;
+			padding-top: 10px;
+			position: relative;
+			text-align: center;
+
+			i{
+				left: 5px;
+				margin-top: -5px;
+				position: absolute;
+				color: #fff !important;
+				font-size: 2em;
+			}
+
+			a{
+				margin-left: 25px;
+				color: #fff;
+				text-decoration: none;
+			}
+		}
+
+		.facebook{
+			background-color: #3a5897;
+		}
+
+		.twitter{
+			background-color: $blue;
+		}
+
+		.google{
+			background-color: #dc4e41;
+		}
+	}
+}

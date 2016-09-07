@@ -1,0 +1,44 @@
+.filter{
+	padding: 0px 15px;
+	font-size: 16px;
+	height: 45px;
+	font-weight: 500;
+	color: $grey;
+}
+
+.filter.active{
+	color: $blue;
+	border-bottom: 5px solid $blue;
+	font-weight: 700;
+}
+
+.filter-divider{
+	position: absolute;
+	left: 0;
+	width: 100%;
+	margin-bottom: 10px;
+	margin-top: 0px;
+}
+
+.search-more{
+	a{
+		color: $blue;
+		text-decoration: none;
+	}
+}
+
+.search-browse-by{
+	
+	ul{
+		list-style: none;
+		padding-left: 10;
+		
+		li{
+			a{
+				color: $blue;
+				font-size: 14px;
+				font-weight: 500;
+			}
+		}
+	}
+}

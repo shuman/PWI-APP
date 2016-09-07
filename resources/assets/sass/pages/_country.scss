@@ -1,0 +1,188 @@
+.country-header{
+    @include country-dimensions( );
+    @include box-outline( );
+    background-color: #fff;
+    
+    .cover_photo{
+        width: 100%;
+        height: 162px; 
+    }
+    .country-header-content{
+        
+        overflow: hidden;
+        height: 67px;
+        padding-top: 3px;
+        
+        .country_name{
+            font-size: 24px;
+            color: #000;
+            font-weight: 700;
+        }    
+    }
+}
+
+.country-content{
+    @include country-dimensions( );
+    height: auto;
+    min-height: 500px;
+
+    
+    .causes-we-support{
+        @include box-outline( );
+        background-color: #fff;
+        
+        .cause-list{
+            border-right: 1px solid #f1f1f1;
+            
+            p{
+                font-size: 18px;
+                font-weight: 400;
+                margin-top: 10px;
+            }
+            
+            .countryCauseName{
+                height: 40px;
+                color: $grey;
+                
+                .countryCauseNameText{
+                    padding-left: 15px;
+                    padding-top: 5px;
+                    color: $grey;
+                }
+            }
+            
+            .countryCauseName.active{
+                color: #0581c6;
+                
+                .countryCauseNameText{
+	                color: #0581c6 ;
+                }
+            }
+            
+            .countryCauseName:hover{
+                cursor: pointer;
+            }
+        }
+        
+        .country-cause-description{
+            padding: 10px;
+            font-size: 12px;
+            color: #8899a6;
+            
+            .country-cause-description-header{
+               font-weight: 700;
+                margin: 10px 0px;
+            }
+        }
+    }
+    
+    .country-map{
+        @include box-outline( );
+        background-color: #fff;
+		margin-top: 10px;
+        padding: 0px;
+        width: 99%;
+        margin-right: 1%;
+        p{
+            font-size: 18px;
+            color: #292f33;
+            padding-top: 24px;
+            padding-bottom: 24px;
+            padding-left: 5px;
+        }
+        
+        #map{
+            width: 100%;
+            height: 290px;
+        }
+    }
+    
+    .country-demographics{
+        @include box-outline( );
+        background-color: #fff;
+        padding: 20px 15px;
+		margin-top: 10px;
+        width: 99%;
+        margin-left: 1%;
+        p{
+            font-size: 18px;
+            color: #292f33;
+            padding-bottom: 24px;
+            padding-left: 5px;
+        }
+        
+        .demographics-data{
+            font-size: 12px;
+            color: #8899a6;
+            
+            .data-text{
+                font-weight: 400;
+                padding: 10px 0px;
+            }
+        }
+    }
+    
+    .country-geography{
+        @include box-outline( );
+        background-color: #fff;
+        padding: 20px 15px;
+
+		margin-top: 10px;
+        width: 99%;
+        margin-right: 1%;
+        
+        p{
+            font-size: 18px;
+            color: #292f33;
+            padding-top: 24px;
+            padding-bottom: 24px;
+            padding-left: 5px;
+        }
+        
+        .geography-data{
+            font-size: 12px;
+            color: #8899a6;
+            padding: 0px 5px;
+            
+            .geography-item{
+                 padding: 5px 0px;
+            }
+        }
+    }
+    
+    .country-finances{
+        @include box-outline( );
+        background-color: #fff;
+        padding: 20px 15px;
+		margin-top: 10px;
+		width: 99%;
+        margin-left: 1%;
+        
+        p{
+            font-size: 18px;
+            color: #292f33;
+            padding-top: 24px;
+            padding-bottom: 24px;
+            padding-left: 5px;
+        }
+        
+        .finance-data{
+            font-size: 12px;
+            color: #8899a6;
+            padding: 0px 5px;
+            
+            .finance-item{
+                padding: 5px 0px;
+            }
+        }
+    }
+}
+
+.flag-wrapper{
+    height: 45px; 
+    width: 68px; 
+    margin-top: 8px; 
+    margin-left: 5px;
+    border: 0px solid #fff;
+    @include border-radius( 0px );
+}
